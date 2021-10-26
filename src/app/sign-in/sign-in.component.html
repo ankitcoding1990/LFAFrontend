@@ -1,0 +1,61 @@
+<section class="form-section section">
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="logo-wrapper">
+                        <img src="assets/images/login-img.png">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <form [formGroup]="loginForm" (submit)="login()">
+                        <h3>Welcome!</h3>
+                        <p>Sign In To Continue</p>
+
+                        <div class="form-wrapper">
+                            <div class="container-text">
+                                <input type="text" class="form-control" autocomplete="gfh" placeholder="Email"
+                                    formControlName="email" required>
+                            </div>
+                            <div class="error-span">
+                         <span class="text-danger dob_error_msg" style="color:red" [hidden]="!user_name_error" class="main-heading text-center">Email is required
+                         </span>
+                         </div> 
+                            <div class="container-text">
+                                <div class="form-group pswrd">
+                                    <input [type]="eye_icon=== true ? 'password' : 'text'" autocomplete="abc"
+                                        class="form-control" placeholder="Password" formControlName="password" required>
+                                    <i (click)="togglePassword()"
+                                        class="fa {{eye_icon=== true ? 'fa-eye-slash' : 'fa-eye'}}"></i>
+                                </div>
+                                <div class="error-span">
+                                   <span class="text-danger dob_error_msg" style="color:red" [hidden]="!password_error" class="main-heading text-center">Password is required
+                               </span>
+                         </div>
+                            </div>
+                            <div class="container-text">
+                                <div class="form-group">
+                                    <input type="checkbox" formControlName="remember_me" [(ngModel)]="rememberSelected">
+                                    <label for="control-label">&nbsp; Remember Me</label>
+                                </div>
+                            </div>
+                            <div class="log-in-button">
+                                <button type="submit" [disabled]="loading" class="btn w-75">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Continue</button>
+                            </div>
+                            <span><a href="#" class="" data-toggle="modal" data-target="#myModal">Need an
+                                    Account?</a></span>
+                            <br><span class=""><a href="#" [routerLink]="['/email']" (click)="go_for_password();">Forgot Password?</a></span>
+                            &nbsp; &nbsp; &nbsp; &nbsp;<span class=""><a href="#" [routerLink]="['/email']"
+                                    (click)="go_for_username();">Forgot Username?</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://reporting.lawforall.com/portal/",
+    "secure": false
+  }
+}

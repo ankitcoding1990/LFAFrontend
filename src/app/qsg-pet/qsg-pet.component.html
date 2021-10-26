@@ -1,0 +1,401 @@
+<section class="section step-section">
+  <div class="container-fluid c-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12" id="">
+        <div class="row">
+          <div class=" col-lg-3 col-md-3 nav-horizontal-mobile mb-3 hidepgeqsg">
+          <app-quickstartquide></app-quickstartquide>
+          </div>
+          <div class="col-lg-9 col-md-9">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active cir-main-tab" id="v-pills-basics" role="tabpanel"
+                aria-labelledby="v-pills-basics-tab">
+                <div class="tabs" >
+                    <div class="nav-area" [hidden]="showsubnav" id="navarea">
+                      <div class="arrow-div1" id="slideBack">
+                        <i class="fa fa-chevron-left"></i>
+                      </div>
+                      <ul class="cir-tab nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                              <a class="nav-link " id="v-pills-basic-tab"  [routerLink]="['/complete-profile']" data-toggle="pill" href="#tabs-1" role="tab"
+                          aria-controls="v-pills-basic" aria-selected="true" >Profile</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-legal-tab" data-toggle="pill" [routerLink]="['/qsg-legal-details']"  role="tab"
+                          aria-controls="v-pills-legal" aria-selected="false" >Legal Details</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-family-tab" data-toggle="pill" [routerLink]="['/qsg-family-details']" role="tab"
+                          aria-controls="v-pills-family" aria-selected="false" >Family Details</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-income-tab" data-toggle="pill" [routerLink]="['/qsg-incomeprofession-details']" role="tab"
+                         aria-controls="v-pills-income" aria-selected="false" >Profession & Income </a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link active" id="v-pills-pets-tab" data-toggle="pill" [routerLink]="['/qsg-pets-details']" role="tab"
+                          aria-controls="v-pills-pets" aria-selected="false" >Pets</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-interest-tab" data-toggle="pill" [routerLink]="['/qsg-interests-details']" role="tab"
+                         aria-controls="v-pills-interest" aria-selected="false" >Interests</a>
+                        </li>
+                         <li class="nav-item">
+                              <a class="nav-link" id="v-pills-other-tab" data-toggle="pill" [routerLink]="['/qsg-otherinterests-details']" role="tab"
+                           aria-controls="v-pills-other" aria-selected="false">Other Legal Interests</a>
+                        </li>
+                         <li class="nav-item">
+                          <a class="nav-link" id="v-pills-summary-tab" data-toggle="pill" [routerLink]="['/qsg-profilesummary-details']" role="tab"
+                            aria-controls="v-pills-other" aria-selected="false" >Profile Summary</a>
+                        </li>
+                        <!--<li class="nav-item">
+                        <a class="nav-link" id="v-pills-docstorage-tab" data-toggle="pill" href="#tabs-9" role="tab"
+                              aria-controls="v-pills-docstorage" aria-selected="false">Document Storage</a>
+                        </li>-->
+                      </ul>
+                      <div class="arrow-div" id="slide1">
+                        <i class="fa fa-chevron-right"></i>
+                      </div>
+                    </div> 
+                    <div class="tab-content" id="pills-tabContent">
+                     <div class="tab-pane fade show active" id="tabs-1" role="tabpanel"
+                aria-labelledby="v-pills-basic-tab">
+                <div class="">
+<div class="row">
+<div class="col-lg-12">
+<h4 class="main-heading">Pets Details</h4>
+<p class="main-sub-para">If you love them, we love them!
+</p>
+</div>
+</div>
+<table id="dtBasicExample"
+class="table table-responsive table-striped table-bordered table-sm text-center">
+<thead>
+<tr>
+<th class="th-sm">Action
+</th>
+<th class="th-sm">Name
+</th>
+<th class="th-sm">Species
+</th>
+<th class="th-sm">Breed
+</th>
+<th class="th-sm">Date of Birth</th>
+<th class="th-sm">Notes</th>
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let pets of getuserpetsdetails.data;">
+<td>&nbsp;&nbsp;<i  [ngClass]="disable_btn_pet ? 'success' : 'pet_enable'" (click)="editpetdetails(pets.id)" class="fa fa-edit"></i> &nbsp;&nbsp;
+  <span [ngClass]="disable_btn_pet ? 'success' : 'pet_enable'" (click)="deletepet(pets.id)"><i class="fa fa-trash"></i></span>
+</td>
+<td>{{ pets.name }} </td>
+<td>{{pets.species}} </td>
+<td>{{pets.breed}} </td>
+
+<td>{{pets.age_number}}<span class="text-danger">{{pets.star }}</span> </td>
+<td class="show_handlink" *ngIf="pets.notes && pets.notes?.length > 0 else content"
+  (click)="editpetdetails(pets.id)">View Notes </td>
+<ng-template #content> N/A </ng-template>
+</tr>
+</tbody>
+</table>
+<p class="text-danger" [hidden]="!estimate_msg_hide">* Indicates an estimated age</p>
+
+<form [formGroup]="editpetForm" (ngSubmit)="updatepetdetails()">
+<div [hidden]="!editpetsform">
+<div class="row">
+<input type="hidden" formControlName="user_id" value="" name="user_id">
+<input type="hidden" formControlName="id" value="" name="id">
+<div class="col-lg-6 col-md-6 col-sm-6">
+  <div class="form-group">
+    <label>Name<span class="text-danger">*</span></label>
+    <input type="text" class="step-input" name="name" formControlName="name"
+      placeholder="Pet Name" />
+    <span class="text-danger"
+      *ngIf="(editpetFormControl.name.touched || editpetForm_submitted) && editpetFormControl.name.errors?.required">
+      name is required
+    </span>
+  </div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+  <div class="form-group">
+    <label>Species<span class="text-danger">*</span></label>
+    <input type="text" class="step-input" name="species" formControlName="species"
+      placeholder="Himalayan Striped Squirrel" />
+    <span class="text-danger"
+      *ngIf="(editpetFormControl.species.touched || editpetForm_submitted) && editpetFormControl.species.errors?.required">
+      Species is required
+    </span>
+  </div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+  <div class="form-group">
+    <label>Breed</label>
+    <input type="text" class="step-input" name="breed" formControlName="breed"
+      placeholder="Breed" />
+
+  </div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+  <br>
+  <span><input type="checkbox" class="checkSurfaceEnvironment-1"
+      (change)="edit_pet_age_number($event)">
+    Don't know exact birthdate or age?</span>
+  <p class="age_old_text" style="display:none;">Enter an estimated age:</p>
+
+</div>
+</div>
+<div class="row">
+
+<div class="col-lg-6 col-md-6 col-sm-6">
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+  <div class="form-group">
+    <span [hidden]="!edit_pet_dob_field">
+      <label>Date of Birth</label>
+      <input type="text" class="step-input dob_slashes" name="birthdate"
+        formControlName="birthdate" placeholder="mm/dd/yyyy" />
+      <span class="text-danger dob_error_msg"
+        *ngIf="(editpetFormControl.birthdate.touched || editpetForm_submitted) && (editpetFormControl.birthdate.errors && editpetFormControl.birthdate.errors.dobProfileError)">
+        Valid Date of Birth is required
+      </span>
+    </span>
+    <span [hidden]="!age_input">
+      <label>Estimated Age</label>
+      <select formControlName="age_number" class="step-input age_input" name="age_number">
+        <option value="" selected>Select Age</option>
+        <option *ngFor='let in of counter(100) ;let i = index' value="{{i+1}}">{{i+1}} Years Old
+        </option>
+        <option value="100+">100+ Years Old</option>
+      </select>
+    </span>
+
+  </div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <button type="button" [hidden]="!show_notes_button" (click)="show_notes_textarea()"
+    class="btn btn-primary mb-2">Add Note</button>
+  <div class="form-group" [hidden]="!show_notes_field">
+    <label>Notes</label>
+    <textarea formControlName="notes" name="notes" rows="4" cols="50"
+      style="width:100%"></textarea>
+  </div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <table id="dtBasicExample"
+    class="table table-responsive table-striped table-bordered table-sm table-bottom">
+    <thead>
+      <tr>
+        <th class="th-sm">Action </th>
+        <th class="th-sm">Note </th>
+        <th class="th-sm">Timestamp </th>
+
+
+      </tr>
+    </thead>
+    <tbody *ngIf="petnotes_details && petnotes_details?.length > 0">
+      <tr *ngFor="let pet_notes of petnotes_details; let i = index;">
+        <td>&nbsp;&nbsp;<i data-toggle="modal" data-target="#my_notes"
+            (click)="edit_notes(pet_notes.id,pet_notes.notes,pet_notes.pet_id)"
+            class="fa fa-edit"></i>&nbsp;&nbsp;
+          <span (click)="delete_notes(pet_notes.id,pet_notes.pet_id)"><i
+              class="fa fa-trash"></i></span>
+        </td>
+        <td>{{ pet_notes.notes }} </td>
+        <td>{{pet_notes.created_at | date:'MM/dd/YYYY hh:mm a'}} </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
+
+<button type="submit" class="btn btn-primary">Save</button>
+<button type="reset" (click)="hidepetsform()" class="btn btn-primary">Cancel</button>
+</div>
+</form>
+<!-- The Modal -->
+<div class="modal" id="my_notes">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<!-- Modal Header -->
+<div class="modal-header">
+  <h4 class="modal-title">Edit Note</h4>
+  <button type="button" id="closebutton_notes" class="close "
+    data-dismiss="modal">&times;</button>
+</div>
+
+<!-- Modal body -->
+
+<div class="modal-body">
+  <form [formGroup]="editpetnotesForm" (ngSubmit)="update_pet_single_note()">
+    <div class="form-group">
+      <input type="hidden" formControlName="id">
+      <label>Notes</label>
+      <textarea formControlName="notes" name="notes" rows="4" cols="50"
+        style="width:100%"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+<form #petForm="ngForm" class="container mt-3"
+(ngSubmit)="petForm.form.valid && userpetdetails(petForm)">
+<div class="row justify-content-center">
+<div class="col-lg-12">
+
+<button [hidden]="showfirstpetform" [ngClass]="disable_btn_pet ? 'success' : 'pet_enable'" type="reset" class="btn btn-primary mb-2"
+  (click)="showfirstpets(petForm)">Add Pets</button>
+
+<div [hidden]="!showpetaddform">
+  <section class="container border my-2" *ngFor="let pets of userpets; let i = index;">
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 mb-2">
+
+        <h4>Add New Pet </h4>
+
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 mb-2 rmv text-right">
+
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>Name<span class="text-danger">*</span></label>
+          <input type="text" #name="ngModel" class="step-input" [(ngModel)]="pets.name"
+            name="name_{{pets.id}}" placeholder="Pet Name" required>
+          <span class="text-danger showformerror"
+            *ngIf="( petForm.submitted) && name.errors?.required">
+            Name is required
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>Species<span class="text-danger">*</span></label>
+          <input type="text" #species="ngModel" class="step-input" [(ngModel)]="pets.species"
+            name="species_{{pets.id}}" placeholder="Himalayan Striped Squirrel" required>
+          <span class="text-danger showformerror"
+            *ngIf="(petForm.submitted) && species.errors?.required">
+            Species is required
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="form-group">
+          <label>Breed</label>
+          <input type="text" #breed="ngModel" class="step-input" [(ngModel)]="pets.breed"
+            name="breed_{{pets.id}}" placeholder="Breed">
+
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <br>
+        <span><input type="checkbox" class="checkSurfaceEnvironment-1"
+            (change)="onChange_pet_edit($event,petForm)">
+          Don't know exact birthdate or age?</span>
+        <p class="age_old_text" style="display:none;">Enter an estimated age:</p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="form-group">
+          <span [hidden]="!add_pet_dob_field">
+            <label>Date of Birth</label>
+            <input type="text" #pets_dob="ngModel" class="step-input dob_slashes"
+              [(ngModel)]="pets.birthdate" name="birthdate _{{pets.id}}"
+              placeholder="mm/dd/yyyy" appDobValidator>
+            <span class="text-danger"
+              *ngIf="(pets_dob.touched || petForm.submitted) && pets_dob.errors?.dobProfileError">
+              Valid date of birth required
+            </span>
+          </span>
+          <span [hidden]="!age_input">
+            <label>Estimated Age</label>
+            <select class="step-input age_input" [(ngModel)]="pets.age_number"
+              name="age_number_{{pets.id}}">
+              <option value="" disabled>Select Age</option>
+              <option *ngFor='let in of counter(100) ;let i = index' value="{{i+1}}">{{i+1}}
+                Years Old</option>
+
+              <option value="100+">100+ Years Old</option>
+            </select>
+          </span>
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="form-group">
+          <label for="notes">Notes</label>
+
+          <textarea #notes="ngModel" [(ngModel)]="pets.notes" name="notes" rows="4"
+            cols="50"></textarea>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<span [hidden]="!petshidesaveprenext">
+  <div [hidden]="savebutton_pets" class="update-button mt-4">
+    <button type="submit" class="btn pull-left mr-3 mb-2">Save</button>
+    <button type="reset" class="btn pull- mr-3 " (click)="removePet(petForm)">Cancel</button>
+  </div>
+  <div [hidden]="!savebutton_pets" class="update-button mt-4">
+    <button [hidden]="!save_btn_pet" type="button" class="btn pull-left mr-3 mb-2" (click)="toggle_save_edit($event)"  value="pet_save">Save</button>
+    <button  [hidden]="save_btn_pet" type="button" class="btn pull-left mr-3" (click)="toggle_save_edit($event)" value="pet_edit">Edit</button>
+  </div>
+  <div [hidden]="!prevnetbutton" class="update-button mt-4 text-right">
+   
+      <button type="button"(click)="PrevTab()" class="btn previncomeform mr-2 mb-2 btnactive"> Prev</button>
+    
+   
+      <button class="btn next5 mr-2 mb-2 btnactive" (click)="NextTab()">Next</button>
+
+  </div>
+</span>
+</div>
+</div>
+</form>
+
+</div>
+              </div>
+                      
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- col 3 add here -->
+        </div>
+      </div>
+    </div>
+   
+
+  </div>
+</section>

@@ -1,0 +1,85 @@
+<section class="trust-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="sticky">
+          <img src="../../assets/images/square_green_trust-svg.png"
+               class="side-img">
+          <p class="caption">
+            Built by Attorneys, Customized by You
+          </p>
+          <div class="footer-wrap">
+            <div class="q-div">
+              <img src="../../assets/images/chat-bubbles.svg">
+            </div>
+            <div class="cap-div">
+              <p class="caption">
+                Have questions about starting your trust?
+              </p>
+              <a class="caption">Chat with a Trust &amp; Will Specialist</a>
+            </div>
+            <div class="trust-div">
+              <div>
+                <a class="trust-btn">
+                  {{ singleservice.data.call_to_action_button_text}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="scroll-div">
+          <img src="../../assets/images/house.png"
+               class="s-img">
+          <h3>{{ singleservice.data.name}}</h3>
+          <p class="price-para">  {{ singleservice.data.service_rates}}</p>
+          <img src="../../assets/images/trustpilot.svg"
+               class="t-img">
+          <p class="main-p">{{ singleservice.data.description}}</p>
+          
+
+          <div>
+            <p class="caption-p">Benefits</p>
+            <ul class="main-ul main-ul-2">
+              <li *ngFor="let q of singleservice.data.benefits" >
+                <i class='bx bx-check'></i>
+                <p class="caption"></p>{{ q }}</li>
+         
+            </ul>
+          </div>
+
+          <div>
+            <p class="caption-p">DASHBOARD FEATURES</p>
+            <div id="accordion">
+              <div class="card" *ngFor="let feature of singleservice.data.dashboard_feature;let i = index;">
+                <div class="card-header">
+                  <a class="card-link">
+                    <i class='bx bx-plus' ></i>
+                    {{feature.name}} <span>( {{feature.status}} )</span>
+                  </a>
+				  <p>
+                   {{feature.description}}
+                  </p>
+                </div>
+				
+               
+              </div>
+
+           
+            </div>
+          </div>
+
+          <div class="btn-div">
+            <button class="create-btn">  {{ singleservice.data.call_to_action_button_text}}</button>
+            <div class="info-d">
+              <p><span>Money Back Guarantee</span></p>
+              <p>If you are unsatisfied with your completed documents, contact us within 30-days of your purchase to request a refund under <a href="#">our Refund Policy</a> .</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

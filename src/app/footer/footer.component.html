@@ -1,0 +1,50 @@
+<section class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="update-button lastrow text-center">
+                    <h5>Need Help? </h5>
+                    <a href="tel:+1-888-291-2398"> <button class="btn btn-primary mb-2 call-btn"> Call Now </button> </a>
+                    <a href="javascript:void(0)"  data-toggle="modal" data-target="#myFeedback" > <button class="btn btn-primary mb-2 feedback-btn"> Feedback </button></a>
+<!-- <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/law-for-all'});return false;">Schedule time with me</a> -->
+                    <button data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-primary mb-2 schedule-btn"> Schedule A Virtual Appointment </button>
+                    <p class="disclaimer"><strong>Legal Disclaimer: </strong>We operate a network of independent legal professionals and we are not a "lawyer referral service." We are not a law firm or a substitute for an attorney. We do not provide advice, explanation, opinion, or recommendation about possible legal rights, remedies, defenses, options, selection of forms or strategies. Services may not be available in all states. The information on this website is for general information purposes only and nothing on this site should be taken as legal advice. Individual results will vary.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="justify-content-left r-center">
+                    <p class="mb-0">
+                        ©2021 Law for All. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="justify-content-flex-end r-center">
+                    <p class="mb-0 clr-white">
+                        <a href="/privacy-policy/">Privacy Policy</a> | 
+                        <a href="/terms-of-service/">Terms of Use</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <span id="cal">
+            <button class="btn pull-right m-1" data-dismiss="modal" (click)="close_cal()">Close</button>
+            <iframe id="cal_calender" src="https://app.cal.com/law-for-all" frameborder="0" allowfullscreen height="560" width="900"></iframe>
+         </span>
+     <!--  <iframe src="https://app.cal.com/lawforall" frameborder="0" allowfullscreen height="560" width="900"></iframe>
+ -->
+    </div>
+  </div>
+</div>
+</section>

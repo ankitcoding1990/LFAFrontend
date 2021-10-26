@@ -1,0 +1,202 @@
+section.legal-resources a {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+button.btn.resources-btn{
+    border: 1px solid #4903e0;
+    background: white;
+    color: #4903e0;
+    font-size: 14px;
+    font-weight: bold;
+    width: 30%;
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px -4px rgb(0 0 0 / 50%);
+    padding: 10px 15px;
+    position:relative;
+}
+.legal-wrapper{
+    background: #ffffff;
+    box-shadow: 0px 0px 25px 2px rgb(8 36 59 / 30%);
+    border-radius: 10px;
+    padding: 40px;
+}
+h4.main-heading{
+    font-size: 34px;
+    font-weight: bold;
+    background: linear-gradient(92deg, #4a00e0, #8e2de2);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+a.lock button.btn.resources-btn::before {
+    content: "\f023";
+    position: absolute;
+    top: -15px;
+    background: #000;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.8;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'FontAwesome';
+}
+.lock button.btn.resources-btn {
+    background: #e5e5e5;
+    color: #000;
+    border: none;
+    box-shadow: none;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.buttons a {
+    display: inline;
+    margin-right: 0 !important;
+}
+.buttons a button.btn{
+    padding: 10px 15px;
+}
+.buttons a button.btn.next{
+    background: linear-gradient(to right, #4a00e0, #8E2DE2);
+    font-size: 14px;
+}
+.step-input{
+    width: 40%;
+    padding: 10px;
+    font-size: 13px;
+    outline: none;
+}
+.nav.nav-pills
+{
+  overflow: hidden;
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    padding: 15px 0; */
+    margin-top: 40px;
+    background: #F2f2f2;
+    padding: 30px 20px;
+    border-radius: 50px;
+}
+.nav.nav-pills a
+{
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding: 9px 15px;
+    border-radius: 40px;
+    background: #fff;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 16px;
+    display: block;
+    box-shadow: 0 0 10px -5px rgb(0 0 0 / 50%);
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link
+{
+  /*background: linear-gradient(to right, #4a00e0, #8E2DE2);*/
+  background: linear-gradient(180deg, #4E03E0 0%, rgba(114, 27, 225, 0.84) 100%);
+  color: #fff;
+}
+
+.nav-link:focus-visible
+{
+  outline:0px;
+}
+.cir-tab .nav-link.active
+{
+  position:relative;
+}
+.cir-tab .nav-link.active:after
+{
+  position:absolute;
+  content:"";
+  background:#4a00e0;
+  height:2px;
+  width: 45px;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.update-button.text-center button.btn.long-btn{
+  display: unset;
+} 
+.summrytab h3.summry
+{
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.summrytab .table-sm td, .table-sm th
+{
+    padding: 0.4rem;
+} 
+.summrytab button.btn
+{
+    background: linear-gradient(to right, #4a00e0, #8E2DE2);
+    font-size: 14px;
+    margin-left: auto;
+    display: block;
+}
+li.nav-item.removenumber.qsglist {
+    width: 227px;
+    height: 69px;
+}
+li.nav-item.removenumber.qsglistsummary {
+    padding: 17px 2px;
+}
+input.checkbox_lock {
+    display: none;
+}
+button.btn.resources-btn.resourcelinks_buttons.checkbox_locks {
+    background: #1fa71f;
+    color: #fff;
+}
+input.lockcheckbox {
+    display: none;
+}
+button.btn.resources-btn.resourcelinks_buttons {
+    width: 47% !important;
+}
+form.ng-untouched.ng-pristine.ng-valid {
+    margin-left: 23px;
+}
+select#states {
+    width: 46%;
+}
+@media screen and (max-width:768px){
+    button.btn.resources-btn{
+        width: 70%;
+        min-height:85px;
+    }
+}
+@media screen and (max-width:400px){
+    .step-input{
+        width: 100% !important;
+    }
+}
+@media screen and (max-width:250px){
+    button.btn.resources-btn{
+        width: 100%;
+    }
+}
+@media screen and (max-width:600px){
+    .step-input {
+        width: 100%;
+    }
+    .legal-wrapper
+    {
+        padding:40px 15px;
+    }
+}
+
+
+
+

@@ -1,0 +1,156 @@
+.confirm-btn
+{
+    padding: 8px 30px !important;
+}
+ul.funnel_lsit_checkbox {
+    list-style: none;
+}
+section.section {
+    padding: 40px 0;
+    display: grid;
+    height: 820px;
+}
+img.iconimg {
+    height: 20px;
+    margin-bottom: 6px;
+}
+.step-content {
+  background: #ffffff;
+  box-shadow: 0px 0px 25px 2px rgb(8 36 59 / 30%);
+  border-radius: 10px;
+  padding:40px;
+  margin-top: 40px;
+  }
+  ol.breadcrumb.top_nav_breadcrumb {
+    background: #80808036;
+}
+p.btn.make_btn {
+    padding: 7px 13px;
+    background: #4a00e0;
+    color: #fff;
+}
+button.btn.submit {
+    padding: 11px 13px;
+    margin-top: -16px;
+}
+
+button.btn.btn_family.mb-3.threetab {
+    background: #4a00e0;
+    padding: 10px;
+    color: #fff;
+    height: 100px;
+    text-align: inherit;
+    width: 159px;
+    font-size: 16px;
+}
+i.fa.fa-times.tabs_three {
+    float: right;
+    margin: -16px;
+    font-size: 21px;
+}
+span.dont_have_matter {
+    cursor: pointer;
+    color: #aaaaaae8;
+}
+p.button.btn_family.mb-3.threetab {
+    cursor: pointer;
+}
+.progress {
+    margin: 26px;
+}
+.progressbar {
+  counter-reset: step;
+  margin: 19px -42px;
+}
+
+.progressbar li {
+  position: relative;
+  list-style: none;
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+.complete-wrapper{margin: 26px;}
+/* Circles */
+.progressbar li:first-child:before {
+    background: #0378d5;
+}
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #2979FF;
+  display: block;
+  text-align: center;
+  margin: 0 auto 14px auto;
+  border-radius: 50%;
+  background-color: #9e9fee;
+   color: #fff;
+  /* Center # in circle */
+  line-height: 55px;
+}
+
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  background: #9e9fee ;
+  top: 20px; /*half of height Parent (li) */
+  left: -50%;
+  z-index: -1;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+.progressbar li.currentactive:before {
+  background: blue;
+}
+.progressbar li.active:before {
+  background: #28a745;
+  content: "✔";  
+}
+
+.progressbar li.active + li:after {
+  background: #28a745;
+}
+/*li.add-checkbox.activetab span {
+    float: right;
+    color: #fff;
+}*/
+
+li.add-checkbox.activetab > span {
+    float: right;
+ /*   color: #fff;*/
+}
+@media screen and (max-width: 600px) {
+section.section {
+    padding: 40px 0;
+    display: grid;
+    height: auto;
+    width: 100%;
+}
+button.btn.submit.futuregoal {
+    margin: 11px;
+}
+span.dont_have_matter:hover {
+    color: #201f1fab;
+}
+.progress {
+    margin-bottom: 34px;
+}
+
+  }
+  @media screen and (max-width: 576px){
+   section.section {
+    padding: 40px 0;
+    display: grid;
+    height: auto;
+    width: 100%;
+}
+button.btn.submit.futuregoal {
+    margin: 11px;
+}
+  }

@@ -1,0 +1,330 @@
+section.section{
+    padding: 40px 0;
+}
+.wrapper-about p {
+  font-size: 15px;
+  line-height: 20px;
+}
+.lawyer-profile-section .col-profile{
+    align-items: center;
+    display: flex;
+}
+.lawyer-profile-section .wrapper{
+    display: flex;
+}
+.lawyer-profile-section .profile-image img{
+    width: 180px;
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: #979797;
+    padding: 3px;
+    max-width: 100%;
+    object-fit: cover;
+}
+.lawyer-profile-section .profile-detail{
+    padding: 30px 30px 0 30px;
+}
+.lawyer-profile-section   h3.main-heading{
+    font-size: 34px;
+    font-weight: 700;
+}
+.lawyer-profile-section .profile-rating{
+    display: flex;
+    padding-top: 10px;
+}
+.lawyer-profile-section .rate .review {
+    display: block;
+}
+.lawyer-profile-section .loc, .year{
+    padding-left: 45px;
+}
+.lawyer-profile-section .loc p, .year p{
+    font-size: 15px;
+    font-weight: 700;
+}
+.lawyer-profile-section .wrapper-second {
+    display: flex;
+    padding-bottom: 10px;
+    margin-left: auto;
+
+}
+.lawyer-profile-section .wrapper-second h3{
+    color: #f0f8ff;
+
+}
+.lawyer-profile-section .wrapper-second.second{
+    padding-top: 30px;
+}
+.lawyer-profile-section .wrapper-second p{
+    color: var(--sub-heading-color);
+}
+.lawyer-profile-section .info {
+    width: 50%;
+    margin: 0 10px 0px 0px;
+    text-align: left;
+    padding: 20px 0 20px 15px;
+    background: linear-gradient(to right, #4a00e0, #8E2DE2);
+    color: #fff;
+    border-radius: 5px;
+}
+.lawyer-profile-section span{
+    font-size: 15px;
+}
+.lawyer-profile-section .profile-name {
+    display: flex;
+}
+.lawyer-profile-section span.verified {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    font-size: 9px !important;
+    font-weight: 700;
+    background: #acf0af;
+    border: 1px solid #797979;
+    border-radius: 6px;
+    width: 80px;
+    height: 20px;
+    text-align: center;
+    line-height: 2;
+}
+.lawyer-profile-section .wrapper-about{
+    padding-top: 10px;
+}
+ .lawyer-profile-section .wrapper-contact{
+    background: #f1f1f1;
+    padding: 20px 15px;
+   border-radius: 5px;
+ }
+
+.row-about  h4 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.wrapper-review .review-rate span.count{
+    font-size: 21px;
+    font-weight: 700;
+}
+span.count {
+  margin-right: 10px;
+}
+.wrapper-about p, .wrapper-contact p, .wrapper-contact a{
+    color: var(--sub-heading-color);
+}
+
+
+.progress-wrapper{
+    width: 50%;
+    margin-top: 20px;
+}
+.progress-wrapper .progress-main {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.progress-wrapper .progress-main .title, .progress-wrapper .progress-main .progress-item {
+    width: 15%;
+    margin-top: 3px;
+}
+.progress-wrapper .progress-main .title h6{
+    font-weight: 700;
+}
+.progress-wrapper .progress {
+    width: 70%;
+    border-radius: 0;
+    height: 15px;
+    background-color: #f1f1f1;
+}
+.progress-wrapper .progress-item{
+    padding-left: 15px;
+    text-align: right;
+}
+
+.progress-item {
+  font-size: 15px;
+  color: #333333;
+}
+.wrapper-second p {
+  font-size: 15px;
+  color: #333 !important;
+  line-height: 20px;
+}
+  /* Individual bars */
+  .progress-wrapper .bar-5 {width: 60%; height: 15px; background-color: #4CAF50;}
+  .progress-wrapper .bar-4 {width: 30%; height: 15px; background-color: #2196F3;}
+  .progress-wrapper .bar-3 {width: 10%; height: 15px; background-color: #00bcd4;}
+  .progress-wrapper .bar-2 {width: 4%; height: 15px; background-color: #ff9800;}
+  .progress-wrapper .bar-1 {width: 15%; height: 15px; background-color: #f44336;}
+
+ .wrapper-contact .address{
+    margin-top: 15px;
+ }
+ .wrapper-contact .social-icon{
+    margin: 15px 0;
+ }
+ .wrapper-contact .social-icon i.fa {
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+    width: 34px;
+    line-height: 34px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.wrapper-contact .social-icon .fa-facebook-f{
+    background: #4060a5;
+}
+.wrapper-contact .social-icon .fa-twitter{
+    background: #00abe3;
+}
+.wrapper-contact .address button.btn{
+    width: 100%;
+}
+.lawyer-section-testimonial .wrapper{
+    display: flex;
+    margin-bottom: 10px;
+}
+.lawyer-section-testimonial .wrapper .image img{
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid #797979;
+    padding: 2px;
+    margin-bottom: 5px;
+}
+.lawyer-section-testimonial .wrapper .content{
+    padding-left: 30px;
+}
+.lawyer-section-testimonial .wrapper h4{
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+.lawyer-section-testimonial .wrapper span.date{
+    font-size: 15px;
+    font-weight: 400;
+}
+.lawyer-section-testimonial .wrapper span.hired{
+    font-size: 9px !important;
+    font-weight: 700;
+    background: #acefe8;
+    border: 1px solid #797979;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 2;
+    position: relative;
+    padding: 4px 10px;
+}
+.lawyer-section-testimonial .wrapper-second h4{
+    font-size: 15px;
+    font-weight: 600;
+}
+.lawyer-section-testimonial button.btn.long-btn.outline-btn{
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:991px){
+    .lawyer-profile-section .wrapper{
+        display: block;
+    }
+    /*.lawyer-profile-section .profile-detail{
+        padding-left: 0;
+    }*/
+    .progress-wrapper{
+        width: 80%;
+    }
+
+}
+@media(min-width:768px) and (max-width:991px){
+
+    .lawyer-section-testimonial .wrapper{
+        display: block;
+    }
+    .lawyer-section-testimonial .wrapper .content{
+        padding-left: 0px;
+    }
+    .lawyer-profile-section .wrapper-contact span a.website{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:776px){
+  .wrapper {
+    flex: 1;
+  }
+  .wrapper-contact {
+    margin-top: 30px;
+  }
+    .lawyer-profile-section .wrapper-second{
+        width:100%
+    }
+}
+
+@media screen and (max-width:576px){
+    .lawyer-profile-section .profile-image{
+        text-align: center;
+    }
+  .progress-wrapper .progress-main .title, .progress-wrapper .progress-main .progress-item {
+    width: 100%;
+    margin-top: 3px;
+  }
+  .progress-wrapper .progress-main .title h6 {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .progress-main.mb-1 {
+    margin-bottom: 10px !important;
+  }
+  .progress-wrapper .progress {
+    width: 100%;
+  }
+  .progress-wrapper .progress-item {
+    right: 15px !important;
+    margin-top: -18px !important;
+    font-size: 14px;
+    position: absolute;
+  }
+
+}
+ /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+ @media (max-width: 420px) {
+    .progress-wrapper .progress-main {
+      display: block;
+    }
+
+  }
+
+@media screen and (max-width: 380px){
+    .lawyer-profile-section .profile-rating{
+        display: block;
+    }
+    .lawyer-profile-section .loc, .year{
+        padding-left: 0px;
+    }
+    .lawyer-profile-section .profile-name{
+        display: block;
+    }
+    .lawyer-profile-section span.verified{
+        top: 0;
+        left: 0;
+        padding: 5px 20px;
+    }
+}
+@media screen and (max-width: 280px){
+    .lawyer-section-testimonial .wrapper{
+        display: block;
+    }
+    .lawyer-section-testimonial .wrapper .content{
+        padding-left: 0px;
+    }
+    .lawyer-profile-section .wrapper-contact span a.website{
+        font-size: 12px;
+    }
+}

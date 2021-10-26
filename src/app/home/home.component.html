@@ -1,0 +1,216 @@
+<div class="home-page">
+    <section class="home-slider">
+        <div class="wrapper">
+            <div class="over-text">
+                <div class="container">
+                    <div class="row slide-row">
+                        <div class="col-md-7">
+                            <div class="over-wrapper">
+                                <h3>Affordable Legal Help 
+                                    <span>Starts Here</span>
+                                </h3>
+                                <p>We are a national legal access plan organization. We’ve built a national network of independent legal professionals and provide access to a variety of options including self-help, limited scope, and full representation services.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 slider-bg">
+                            <div class="wrapper">
+                                <img class="bg-home-img" src="assets/images/slider-bg.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="law-for-works section">
+        <h2 class="main-heading">How LawForAll Works</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="net-card">
+                        <img src="assets/images/gavel.png" class="net-img">
+                        <h3>Tell Us About <br> Your Legal Matter </h3>
+                        <p>Complete your profile and enter your legal matter details</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="net-card">
+                        <img src="assets/images/service.png" class="net-img">
+                        <h3>Review our <br> Services</h3>
+                        <p>Based on your legal matter and needs one of our solutions can save you time and money</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="net-card">
+                        <img src="assets/images/legal-help.png" class="net-img">
+                        <h3>Use our Self Help Guides<br>&amp; Legal Resources</h3>
+                        <p>Use these tools for helpful information tailored to your legal matter</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="net-card">
+                        <img src="assets/images/helping-hand.png" class="net-img">
+                        <h3>Get the Help  <br>You Need</h3>
+                        <p>From Self Help to Limited Scope to Full Representation we can help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="self-help-guides section">
+        <h2 class="main-heading">Explore our Self Help Guides for <span>Family Law</span></h2>
+        <p class="main-subheading">What is a Guide?</p>
+        <div class="container">
+            <div class="row">
+                <div *ngFor="let p of guides.result; let i=index;"  class="col-md-4 col-sm-6 col-12">
+                      <a href="#"  [routerLink]="['/guide/',p.url]" style="display: none;"><button class="selfhelpmove">button </button></a>
+					<div class="wrapper-card">
+                        <div class="img-div">
+                            <span class="popular">Popular</span>
+                            <img class="wrap-img" src="{{p.image}}">
+                            <span class="family">Family Law</span>
+                        </div>
+                        <div class="wrap-detail">
+                            <h5>Guide: <span>{{p.name}}</span></h5>
+                            <p style="text-align:justify;">{{p.description}}
+                            </p>
+                            <div class="button-grp">
+                                <button (click)="movetoguide(p.id)" [ngClass]="{'self_read':p.status === 'completed'}" class="btn"><input type="checkbox" disabled="" [checked]="p.status"> {{p.button_value}}</button>
+                                <div class="text-div">
+                                    <span class="guides">1 Guide</span>
+                                    <span class="mins">{{p?.time_to_read_guide}} mins</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </a> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="section testimonial-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="main-heading">Client Testimonials</h2>
+                <div id="testimonial" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testi-div">
+                                <p class="testi-para">“My personal experience - First and foremost no results are guaranteed, but the service and help they offer is very excellent for the price. They tell you exactly what to do if you're representing yourself so I can only imagine how good the lawyers in the network are. I would recommend them out of my personal experience.”</p>
+                                <p class="testi-name">J Hunter</p>
+                                <!-- <p class="testi-city">San Diego, CA</p> -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testi-div">
+                                <p class="testi-para">“They are really nice, understanding and easy to connect with.”</p>
+                                <p class="testi-name">A Grix</p>
+                                <!-- <p class="testi-city">San Diego, CA</p> -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testi-div">
+                                <p class="testi-para">“I'm getting the help I absolutely need in trying to get full custody of my daughter. It's a stressful time but with the help I'm receiving I know everything will be alright.”</p>
+                                <p class="testi-name">D March</p>
+                                <!-- <p class="testi-city">San Diego, CA</p> -->
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testi-div">
+                                <p class="testi-para">“Have me very hopeful that I will finally be heard and be able to be a father to my children.”</p>
+                                <p class="testi-name">A Pena</p>
+                                <!-- <p class="testi-city">San Diego, CA</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#testimonial" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#testimonial" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="legal-section section">
+    <h2 class="main-heading">LawForAll Legal Topics</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tag-div">
+                    <div *ngFor="let legal of get_other_legal_details.data" class="col-lg-4 col-md-6 col-sm-6 mb-3">
+                        <div class="wrapper-topics">
+                            <a href="javascript:void()" class="tag">
+                                <span class="tag-number"></span>
+                                <p>{{ legal.name}}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section services-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="main-heading text-center">Services</h4>
+                <p class="mb-4">
+                    As you may know the legal system can be very expensive, time consuming, and if you are not familiar with the courts it can seem a little overwhelming to navigate. Law For All is  a national legal access organization
+                    that offers access to low cost legal solutions. We help members resolve their issues, but without the high
+                    costs traditionally associated with full price attorneys. Using the nationwide network of independent attorneys and legal
+                    professionals, we can help in a number of ways based on your specific needs.
+                </p>
+            </div>
+            <div *ngFor="let service of all_services" class="col-md-4 col-lg-4 col-sm-6">
+                <div class="wrapper">
+                    <img src="assets/images/legal.png" class="div-img">
+                    <h6 class="pack">{{service.service_rates}}</h6>
+                    <h3>{{ service.name }}</h3>
+                    <p style="text-align:justify;">
+                        {{service?.description}}
+                    </p>
+                   <span> 
+                    <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/law-for-all'});return false;" > <button class="btn btn-primary mb-2 schedule-btn"> Start Legal Plan</button></a> 
+                 <!--    <a href="#" [routerLink]="['/legal-plan',service.id]"  class="a-btn"><button class="btn">Start Legal Plan</button></a> -->
+                 <br>
+                    <a href="tel:+1-888-318-1266" class="a-link">Call Now</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section [hidden]="!show_signup_section" class="sign-up-today section">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrappers">
+                    <h2 class="main-heading">Sign Up Today</h2>
+                    <button class="btn mb-hide mb-3" data-toggle="modal" data-target="#myModal">
+                        Sign Up
+                    </button>
+                    <p>or call us at 800.555.1234 and speak with our enrollment advisors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

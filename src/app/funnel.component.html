@@ -1,0 +1,1039 @@
+<section class="section step-section">
+	
+	<div class="container">
+		<div class="row ">
+		<div class="col-md-7 align-self-center"> </div>
+		<div class="col-md-5 align-self-right">
+			<ol class="breadcrumb top_nav_breadcrumb">
+				<li class="breadcrumb-item">{{ main_nav}}</li>
+				<li class="breadcrumb-item">{{nav_value}}</li>
+			</ol>
+		</div>
+	</div>
+		<!-- <div class="progress">
+          <div class="progress-bar progress-bar-primary progress_bar progress-bar-striped progress-bar-animated"
+            role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:7%">
+            
+            {{ this?.bar_percentage }}%  Complete
+          </div>
+        </div>
+ -->       
+  <input type="hidden" value="{{this?.bar_percentage*11 }}" id="bar_value">
+    <ul class="progressbar">
+    <li *ngFor="let q of qsg?.data" [ngClass]="{'active':q.page_status === 'completed','currentactive':q.continue_from === 'completed'}">{{ q?.name}}</li>
+ 	 </ul>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12" id="">
+				<div class="row">
+					<div class="container">
+						<div class="complete-wrapper">
+							<!-- dob form -->
+							<div class="dob_tab" [hidden]="!show_dob_form">
+								<h4 class="main-heading text-center">We’re so excited you’re here to look around! </h4>
+								<h5 class="main-heading text-center">Let's get your account set up, then we'll show you around.
+								</h5>
+								<br>
+								<br>
+								<h5 class="main-heading text-center"> Here we go!</h5>
+								<form [formGroup]="dobform" (submit)="save_dob()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4  pull-center">
+											<label for="phone">Date of Birth</label>
+											<br>
+											<input type="text" class="step-input family_age_dob dob_slashes" formControlName="dob" placeholder="mm/dd/yyyy" name="dob" /> <span class="text-danger dob_error_msg" *ngIf="(dob_FormControl.dob.touched || dobform_submitted) && (dob_FormControl.dob.errors && dob_FormControl.dob.errors.dobProfileError)">
+												Valid Date of Birth is required
+											</span> </div>
+										<div class="col-md-4"> </div>
+										<div class="col-md-12">
+											<br>
+											<a href="#">
+												<button class="btn submit">NEXT</button>
+											</a>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end dob form -->
+							<!-- gender form -->
+							<div class="gender_tab" [hidden]="!show_gender_form">
+								<form [formGroup]="genderform" (submit)="save_gender()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4  pull-center">
+											<label for="phone">
+												<h5> What is your gender?</h5> </label>
+											<br>
+											<select class="step-input" formControlName="gender" (change)="get_gender_value($event)">
+												<option value="" disabled selected>Select Gender</option>
+												<option *ngFor="let gender of genderlist" [value]="gender.name">{{gender?.name}}</option>
+											</select> <span class="text-danger" *ngIf="(gender_FormControl.gender.touched || genderform_submitted) && gender_FormControl.gender.errors?.required">
+												Gender is required
+											</span> </div>
+										<div class="col-md-4"> </div>
+										<div class="col-md-12">
+											<br>
+											<button type="button" value="dob" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<a href="#">
+												<button type="submit" class="btn submit">NEXT</button>
+											</a>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end gender form -->
+							<!-- pronounform -->
+							<div class="pronoun_tab" [hidden]="!show_pronouns_form">
+								<form [formGroup]="pronounform" (submit)="save_pronoun()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4  pull-center">
+											<label for="phone">
+												<h5>Would you like to define your pronouns?</h5> </label>
+											<br>
+											<input type="text" formControlName="pronoun" name="pronoun" class="step-input" placeholder="Pronouns" autocomplete="off"> </div>
+										<div class="col-md-4"> </div>
+										<div class="col-md-12">
+											<br>
+											<button type="button" value="gender" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<button class="btn submit ">NEXT</button>
+											<!-- &nbsp;&nbsp;&nbsp;<p [hidden]="!gender_pronoun_field" class="btn make_btn" (click)="skip_pronoun()">SKIP</p> -->
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="Address_tab" [hidden]="!show_address_form">
+								<form [formGroup]="Addressform" (submit)="save_address()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4  pull-center">
+											<label for="phone">
+												<h5>Address</h5> </label>
+											<br>
+											<textarea class="input-step" rows="7" formControlName="address"></textarea>
+										</div>
+										<div class="col-md-4"> </div>
+										<div class="col-md-12">
+											<br>
+											<button type="button" value="pronoun" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<button class="btn submit ">NEXT</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- end pronounform -->
+							<!-- legal matter -->
+							<div class="legal_tab" [hidden]="!show_legal_form">
+								<form [formGroup]="legalform" (submit)="save_legal()">
+									<h4 [hidden]="!title_legal" class="main-heading text-center">Just to confirm, is this the correct legal
+										matter that’s on your mind? </h4>
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4  pull-center">
+											<h5 [hidden]="!title_legal" *ngIf="legal_matter_when_signup" [innerHTML]="legal_matter_when_signup">
+											</h5>
+											<br> <span [hidden]="!yes_no_button">
+												<button type="button" class="btn submit" value="skip_legal_matter" (click)="show_legal_issue($event)">Yes</button>
+												&nbsp;&nbsp;&nbsp;
+												<button type="button" class="btn submit" (click)="show_legal_dropdown()">No</button>
+												<!-- <p class="btn make_btn" (click)="have_legal_no()">No</p> -->
+												<br><br>
+											<button type="button" value="address" (click)="prev_section($event)" class="btn submit">PREV</button>
+
+											</span>
+											<!-- no case -->
+											<div class="no_have_legal_matter" [hidden]="!no_have_legal_matter">
+												<!-- <h5>Do you have an Legal Matter</h5><br> -->
+												<button type="button" class="btn submit" value="skip_legal_matter" (click)="show_legal_issue($event)">Yes</button> &nbsp;&nbsp;&nbsp;
+												<button type="button" class="btn submit" (click)="show_legal_dropdown()">No</button>
+												<!-- <p class="btn make_btn" (click)="what_you_want()">No</p> -->
+												<br>
+												<br>
+												<button type="button" value="just_confirm" (click)="prev_section($event)" class="btn submit">PREV</button>
+											</div>
+											<!-- end no case  -->
+											<!-- yes case -->
+											<div class="legal_dropsown" [hidden]="!legal_matter_dropdoen">
+												<h4 class="main-heading text-center">Please select your legal matter below</h4>
+												<select formControlName="legal_type" class="step-input" id="legal" (ngModelChange)="onChange_other_interests($event)" name="legal-details">
+													<option value="" disabled selected>Select Legal Matter</option>
+													<option *ngFor="let legal of get_other_legal_details.data" [value]="legal.id">{{legal?.name}}</option>
+												</select>
+												<br>
+												<br>
+												<button type="button" value="have_legal_again" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+												<button type="button" value="with_legal_matter" class="btn submit" (click)="show_legal_issue($event)">NEXT</button>
+												<br> <br><span class="dont_have_matter" (click)="dont_have_matter()">I don’t have a legal matter</span> </div>
+											<div class="legal_issue" [hidden]="!legal_issue_dropdoen">
+												<h4 class="main-heading text-center">Legal matters are complicated, <br>could you please specify <br> the legal issue:</h4>
+												<select formControlName="legal_issue" class="step-input" id="legal" name="legal-details">
+													<option value="" disabled selected>Select Legal Issue</option>
+													<option *ngFor="let legal of get_sub_interests" [value]="legal.id"> {{legal?.name}}</option>
+												</select>
+												<br>
+												<br>
+												<button [hidden]="!prev_buton_legal" type="button" value="legal_matter" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+												<button [hidden]="prev_buton_legal" type="button" value="just_confirm" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+												<button type="button" class="btn submit" (click)="show_legal_description()">NEXT</button>
+											</div>
+											<div class="legal_description" [hidden]="!legal_description">
+												<h4 class="main-heading text-center">Finally, please provide a brief description of your legal issue. <br>Don't worry about being too detailed, we will get to that later.</h4>
+												<textarea class="input-step" rows="7" (change)="doSomething($event)" formControlName="legal_issue_description"></textarea>
+												<br>
+												<br>
+												<button type="button" value="legal_issue" (click)="prev_section($event)" class="btn submit">PREV</button> &nbsp;&nbsp;&nbsp;
+												<button type="submit" class="btn submit">NEXT</button>
+											</div>
+										</div>
+										<div class="col-md-4"> </div>
+										<div class="col-md-12" [hidden]="!next_button">
+											<br>
+											<br>
+											<a href="#">
+												<button class="btn submit">NEXT</button>
+											</a>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="what_u_want" [hidden]="!what_u_want">
+								<form [formGroup]="custom_legalform" (submit)="save_custom_legalform()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4 pull-center">
+											<label>What do you want?</label>
+											<br>
+											<textarea class="input-step" rows="7" formControlName="custom_legal_issue"></textarea>
+											<br>
+											<br>
+											<button type="button" value="have_legal" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<a href="#">
+												<button class="btn submit">NEXT</button>
+											</a>
+										</div>
+										<div class="col-md-4"> </div>
+									</div>
+								</form>
+							</div>
+							<!-- end legal matter -->
+							<!-- family -->
+							<div class="family_tab_3" [hidden]="!show_family_form">
+								<h4 class="main-heading text-center">Let's get your loved ones added. <br></h4>
+								<h5 class="main-heading text-center">Who would you like to add? </h5>
+								<br>
+								<br>
+								<div class="row text-center">
+									<div class="col-lg-3"> </div>
+									<div class="col-lg-2">
+										<button class="btn btn_family  mb-3 threetab" (click)="show_emergency_form()"> FAMILY &
+											<br> EMERGENCY CONTACTS </button>
+									</div>
+									<div class="col-lg-2">
+										<button class="btn btn_family  mb-3 threetab" value="family_member" (click)="show_family_kids($event)"> CHILDREN &
+											<br>DEPENDENTS </button>
+									</div>
+									<!-- <div class="col-lg-2">
+										<button class="btn btn_family  mb-3 threetab"  value="family_dependendent" (click)="show_family_kids($event)"> FAMILY <br> CHILDREN,<br>DEPENDENTS</button>
+									</div> -->
+									<div class="col-lg-2">
+										<button class="btn btn_family  mb-3 threetab" (click)="show_pets_conf()"> PETS </button>
+									</div>
+									<div class="col-lg-3"> </div>
+									<div class="col-md-12">
+										<br>
+										<br>
+										<button type="button" value="legal_description" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+										<button type="button" class="btn submit" (click)="show_profession_form()"> NEXT </button>
+									</div>
+								</div>
+							</div>
+							<div class="family_section" [hidden]="!show_family_section">
+								<div class="family_tab_kids" [hidden]="!show_family_kids_form">
+									<!-- <h4 [hidden]="!family_friend_title" class="main-heading text-center">Please tell us their name and date of birth.
+									</h4> -->
+									<h4  class="main-heading text-center">Please enter their information:
+									</h4>
+									<h5 [hidden]="!family_hint" class="main-heading text-center">HINT: Email and phone are not required
+									</h5><br>
+									<form [formGroup]="familyform" (submit)="save_family()">
+										<input type="hidden" formControlName="user_id" name="user_id" value="">
+										<div class="row text-center kids_detais">
+											<div class="col-lg-3"> </div>
+											<div class="col-lg-6">
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>First Name</label>
+															<input type="text" class="step-input" name="member_name" formControlName="member_name" placeholder="First Name" /> <span class="text-danger" *ngIf="(familyForm_submitted) && familyFormControl.member_name.errors?.required">
+																First Name is required
+															</span> </div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Last Name</label>
+															<input type="text" class="step-input" name="lastname" formControlName="lastname" placeholder="Last Name" /> </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Email</label>
+															<input type="email" email="true" class="step-input" name="member_email" formControlName="member_email" placeholder="example@gmail.com" /> </div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Phone</label>
+															<input type="text" class="step-input" name="phone" formControlName="phone" mask="(000) 000-0000" placeholder="(XXX)-XXX-XXXX" /> </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group"> <span [hidden]="!edit_family_dob_field">
+																<label>Date of Birth</label>
+																<input type="text" class="step-input family_age_dob dob_slashes" formControlName="age"
+			                          						placeholder="mm/dd/yyyy" name="age" />
+															<span class="text-danger dob_error_msg"
+																*ngIf="(familyFormControl.age.touched || familyForm_submitted) && (familyFormControl.age.errors && familyFormControl.age.errors.dobProfileError)">
+																Valid Date of Birth is required
+															</span> </span> <span [hidden]="!age_input">
+																<label>Estimated Age</label>
+																<select id="age_number" formControlName="age_number"
+																	class="step-input" name="age_number">
+																	<option value="" disabled>Select Age</option>
+																	<option
+																		*ngFor='let in of counter(100) ;let i = index'
+																		value="{{i+1}}">{{i+1}} Years Old</option>
+																	<option value="100+">100+ Years Old</option>
+																</select>
+															</span> </div> <span><input type="checkbox" class="checkSurfaceEnvironment-3"
+																(change)="onChangeage_edit_family($event)">
+															Don't know exact birthdate?</span>
+														<p class="age_old_text" style="display:none;">Enter an estimated age:</p>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Relationship</label>
+															<select class="step-input getothetrealtion" formControlName="relation">
+																<option value="" disabled selected>Select Relationship</option>
+																<option  [hidden]="!family_child_relation" value="Spouse / Partner">Spouse / Partner</option>
+																<option  [hidden]="!family_child_relation"  value="Father">Father</option>
+																<option  [hidden]="!family_child_relation" value="Mother">Mother</option>
+																<!-- <option value="Sibling">Sibling</option> -->
+																<option value="Child">Child</option>
+																<option value="Step Child">Step Child</option>
+																<option value="Dependent">Dependent</option>
+																<option value="other">Other</option>
+															</select>
+															<input type="text" class="step-input showotherrelationfield" name="otherrelation" formControlName="otherrelation" placeholder="Other Relationship" style="display:none;" /> <span class="text-danger" *ngIf="(emergencyFormControl.relation.touched || emergencyForm_submitted) && emergencyFormControl.relation.errors?.required">
+																Relationship is required
+															</span> <span><input type="hidden" class="emgency_member_contact"
+																	value="1" formControlName="emergency_member"></span> </div> <span [hidden]="family_friend_title">
+															<input type="hidden" class="emgency_member_contact"
+																	value="" formControlName="emergency_member">
+															<input type="checkbox" class="checkSurfaceEnvironment-4"
+																(change)="onChangeage_set_emergency($event)">
+															  Add as Emergency Contact?</span> </div>
+												</div>
+												<div class="row">
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Gender</label>
+															<br>
+															<select class="step-input" formControlName="gender" (change)="get_gender_value_family($event)">
+																<option value="" disabled selected>Select Gender</option>
+																<option *ngFor="let gender of genderlist" [value]="gender.name">{{gender.name}} </option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6" [hidden]="!gender_pronoun_field_family">
+														<div class="form-group">
+															<label>Define Pronouns?</label>
+															<input type="text" class="step-input" formControlName="gender_pronoun" placeholder="Pronouns" /> </div>
+													</div>
+												</div>
+												<button type="button" value="threeTabs" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+												<a href="#">
+													<button type="submit" class="btn submit">NEXT</button>
+												</a>
+											</div>
+											<div class="col-lg-3"> </div>
+										</div>
+									</form>
+								</div>
+								<div class="family_other_member" [hidden]="!show_family_other_msg">
+									<div class="row  text-center mx-0">
+										<div class="col-md-12">
+											<h4 class="main-heading text-center">Do you have another child, step-child or dependent that you would like to add?<br>
+											</h4>
+											<br>
+											<button class="btn submit" value="family_member" (click)="show_family_kids($event)">YES</button> &nbsp;&nbsp;&nbsp;
+											<button type="button" value="threeTabs" (click)="prev_section($event)" class="btn submit">NO</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end family -->
+							<!-- emergency contact -->
+							<div class="emergency_section" [hidden]="!show_emergency_section">
+								<div class="emergency_tab" [hidden]="!show_emergency_tab">
+									<h4 class="main-heading text-center">Who is your "person" aka emergency contact? 
+									</h4>
+									<h5 class="text-center">HINT: You can add multiple</h5>
+									<form [formGroup]="emergencyform" (submit)="save_emergency_contact()">
+										<input type="hidden" formControlName="user_id" name="user_id" value="">
+										<div class="row text-center kids_detais">
+											<div class="col-lg-3"> </div>
+											<div class="col-lg-6">
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>First Name</label>
+															<input type="text" class="step-input" name="member_name" formControlName="member_name"  placeholder="First Name" /> <span class="text-danger" *ngIf="(emergencyFormControl.member_name.touched || emergencyForm_submitted) && emergencyFormControl.member_name.errors?.required">
+																First name is required
+															</span> </div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Last Name</label>
+															<input type="text" class="step-input" name="lastname" formControlName="lastname" placeholder="Last Name" /> </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Email</label>
+															<input type="email" email="true" class="step-input" name="member_email" formControlName="member_email" placeholder="example@gmail.com" /> </div>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Phone</label>
+															<input type="text" class="step-input" name="phone" formControlName="phone" mask="(000) 000-0000" placeholder="(XXX)-XXX-XXXX" /> </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group"> <span [hidden]="!edit_family_dob_field_emergency">
+																<label>Date of Birth</label>
+																 <input type="text" class="step-input family_age_dob dob_slashes" formControlName="age"
+                          											placeholder="mm/dd/yyyy" name="age" />
+                          											<span class="text-danger dob_error_msg"
+																*ngIf="(emergencyFormControl.age.touched || emergencyForm_submitted) && (emergencyFormControl.age.errors && emergencyFormControl.age.errors.dobProfileError)">
+																Valid Date of Birth is required
+															</span> </span> <span [hidden]="!age_input_emergency">
+																<label>Estimated Age</label>
+																<select id="age_number" formControlName="age_number"
+																	class="step-input" name="age_number">
+																	<option value="" disabled>Select Age</option>
+																	<option
+																		*ngFor='let in of counter(100) ;let i = index'
+																		value="{{i+1}}">{{i+1}} Years Old</option>
+																	<option value="100+">100+ Years Old</option>
+																</select>
+															</span> </div> <span><input type="checkbox" class=""
+																(change)="onChangeage_edit_emergency($event)">
+															Don't know exact birthdate?</span>
+														<p class="age_old_text" style="display:none;">Enter an estimated age:</p>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-6">
+														<div class="form-group">
+															<label>Relationship</label>
+															<select class="step-input getothetrealtion" formControlName="relation">
+																<option value="" disabled selected>Select Relationship</option>
+																<option value="Spouse / Partner">Spouse / Partner</option>
+																<option value="Father">Father</option>
+																<option value="Mother">Mother</option>
+																<option value="Sibling">Sibling</option>
+																<option value="Child">Child</option>
+																<option value="Step Child">Step Child</option>
+																<option value="Dependent">Dependent</option>
+																<option value="other">Other</option>
+															</select>
+															<input type="text" class="step-input showotherrelationfield" name="otherrelation" formControlName="otherrelation" placeholder="Other Relationship" style="display:none;" /> <span class="text-danger" *ngIf="(emergencyFormControl.relation.touched || emergencyForm_submitted) && emergencyFormControl.relation.errors?.required">
+																Relationship is required
+															</span> <span><input type="hidden" class="emgency_member_contact"
+																	value="1" formControlName="emergency_member"></span> </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-6 col-md-6">
+														<div class="form-group">
+															<label>Gender</label>
+															<br>
+															<select class="step-input" formControlName="gender" (change)="get_gender_value_family($event)">
+																<option value="" disabled selected>Select Gender</option>
+																<option *ngFor="let gender of genderlist" [value]="gender.name">{{gender.name}} </option>
+															</select>
+														</div>
+													</div>
+													<div class="col-lg-6 col-md-6" [hidden]="!gender_pronoun_field_family">
+														<div class="form-group">
+															<label>Define Pronouns?</label>
+															<input type="text" class="step-input" formControlName="gender_pronoun" placeholder="Pronouns" /> </div>
+													</div>
+												</div>
+												<button type="button" value="family_form" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+												<a href="#">
+													<button type="submit" class="btn submit">NEXT</button>
+												</a>
+											</div>
+											<div class="col-lg-3"> </div>
+										</div>
+									</form>
+								</div>
+								<div class="family_another_member" [hidden]="!show_family_emergency_conf">
+									<div class="row  text-center mx-0">
+										<div class="col-md-12">
+											<h4 class="main-heading text-center">Would you like to list another family
+												member?</h4>
+											<br>
+											<br>
+											<button class="btn submit" value="" (click)="show_family_kids($event)">YES</button> &nbsp;&nbsp;&nbsp;
+											<button type="button" value="threeTabs" (click)="prev_section($event)" class="btn submit">NO</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- endemergency contact -->
+							<!-- pets confirmation -->
+							<div class="pets_member_conf" [hidden]="!show_pets_confimation">
+								<div class="row  text-center mx-0">
+									<div class="col-md-12">
+										<h4 class="main-heading text-center">Would you like to add more pets?</h4>
+										<br>
+										<br>
+										<button class="btn submit" (click)="show_pets_form()">YES</button> &nbsp;&nbsp;&nbsp;
+										<button type="button" value="family_form" (click)="prev_section($event)" class="btn submit">NO</button>
+									</div>
+								</div>
+							</div>
+							<!-- end pets confirmation -->
+							<!-- pet form -->
+							<div class="pets_form" [hidden]="!show_pet_form">
+								<h4 class="main-heading text-center">We love fur babies!</h4>
+								<h5 class="main-heading text-center">HINT: You can estimate their age</h5>
+								<form [formGroup]="petsform" (submit)="save_pets()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<input type="hidden" formControlName="pet_form" name="pet_form" value="pet_form">
+									<div class="row text-center kids_detais">
+										<div class="col-lg-3"> </div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label>First Name </label>
+														<input type="text" class="step-input" name="Name" formControlName="name" placeholder="First Name" /> <span class="text-danger" *ngIf="(pets_submitted) && petsFormControl.name.errors?.required">
+															Name is required
+														</span> </div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label>Last Name?</label>
+														<input type="text" class="step-input" name="lastname" formControlName="lastname" placeholder="Last Name" /> </div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-lg-4 col-md-4 col-sm-4">
+													<div class="form-group">
+														<label>Species</label>
+														<input type="text" class="step-input" name="species" formControlName="species" placeholder="Himalayan Striped Squirrel" /> <span class="text-danger" *ngIf="(pets_submitted) && petsFormControl.species.errors?.required">
+															Species is required
+														</span> </div>
+												</div>
+												<div class="col-lg-4 col-md-4 col-sm-4">
+													<div class="form-group">
+														<label>Breed </label>
+														<input type="text" class="step-input" name="breed" formControlName="breed" placeholder="Breed" />
+														<!-- <span class="text-danger"
+															*ngIf="(pets_submitted) && petsFormControl.breed.errors?.required">
+															Breed is required
+														</span> --></div>
+												</div>
+												<div class="col-lg-4 col-md-4 col-sm-4">
+													<div class="form-group"> <span [hidden]="!add_pet_dob_field">
+															<label>Date of Birth</label>
+															 <input type="text" class="step-input family_age_dob dob_slashes" formControlName="birthdate"
+			                          						placeholder="mm/dd/yyyy" name="birthdate" />
+															<span class="text-danger dob_error_msg"
+																*ngIf="(petsFormControl.birthdate.touched || pets_submitted) && (petsFormControl.birthdate.errors && petsFormControl.birthdate.errors.dobProfileError)">
+																Valid Date of Birth is required
+															</span> </span> <span [hidden]="add_pet_dob_field">
+															<label>Estimated Age</label>
+															<select id="age_number" formControlName="age_number"
+																class="step-input" name="age_number">
+																<option value="" disabled>Select Age</option>
+																<option *ngFor='let in of counter(100) ;let i = index'
+																	value="{{i+1}}">{{i+1}} Years Old</option>
+																<option value="100+">100+ Years Old</option>
+															</select>
+														</span> </div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-lg-8 col-md-8 col-sm-8"> </div>
+												<div class="col-lg-4 col-md-4 col-sm-4"> <span><input type="checkbox" class="checkSurfaceEnvironment-2"
+															(change)="onChange_pet_edit($event)">
+														Don't know exact birthdate?</span>
+													<p class="age_old_text" style="display:none;">Enter an estimated age:</p>
+												</div>
+											</div>
+											<br>
+											<button type="button" value="threeTabs" (click)="prev_section($event)" class="btn submit">PREV</button> &nbsp;&nbsp;&nbsp;
+											<a href="#">
+												<button type="btn submit" class="btn submit">NEXT</button>
+											</a>
+										</div>
+										<div class="col-lg-3"> </div>
+									</div>
+								</form>
+							</div>
+							<!-- end pet form -->
+							<!-- Profession  -->
+							<div class="start_profession" [hidden]="!show_start_profession">
+								<div class="row  text-center mx-0">
+									<div class="col-md-12">
+										<h4 class="main-heading text-center">Are you currently employed?</h4>
+										<br>
+										<br>
+										<button type="button" class="btn submit" (click)="show_current_work()">YES</button> &nbsp;&nbsp;&nbsp;
+										<button type="button" class="btn submit" (click)="skip_profession_income()">NO </button>
+										<br>
+										<br>
+										<button type="button" value="threeTabs" (click)="prev_section($event)" class="btn submit">PREV</button>
+									</div>
+								</div>
+							</div>
+							<div class="income_profession" [hidden]="!income_profession">
+								<form [formGroup]="income_professionform" (submit)="save_income_profession()">
+									<input type="hidden" formControlName="user_id" name="user_id">
+									<div class="row  text-center mx-0">
+										<div class="col-md-12">
+											<h4 [hidden]="!title_profession" class="main-heading text-center">Please enter your field of work and annual income</h4>
+											<h4 [hidden]="title_profession" class="main-heading text-center">Would you like to add another job you are currently working at?</h4> </div>
+										<div class="col-md-2 col-lg-2"> </div>
+										<div class="col-md-4 col-lg-4">
+											<label for="profession"> Profession</label>
+											<br>
+											<select formControlName="profession" class="step-input professionother" name="profession">
+												<option value="" disabled selected>Select Profession</option>
+												<option *ngFor="let profession of professionlist" [value]="profession">{{profession}}</option>
+												<option value="other">Other</option>
+											</select>
+											<!-- <span class="text-danger"
+												*ngIf="(income_proFormControl.profession.touched || income_proForm_submitted) && income_proFormControl.profession.errors?.required">
+												Profession is required
+											</span> --><span class="showotherprofession" style="display:none;">
+				                        <label for="other">Other Profession</label><br>
+				                        <input formControlName="other" type="text" class="step-input showotherprofessiondetails"
+				                          placeholder="Other Profession">
+				                      	</span> </div>
+										<div class="col-md-4 col-lg-4">
+											<label for="income">Annual Income</label>
+											<br>
+											<select class="step-input incomeother" formControlName="income" name="income">
+												<option value="" selected>Annual Income</option>
+												<option value="no income">No income</option>
+												<option value="Under $15,000">Under $15,000</option>
+												<option value="$15,001-$25,000">$15,001-$25,000</option>
+												<option value="$25,001-$35,000">$25,001-$35,000</option>
+												<option value="$35,001-$50,000">$35,001-$50,000</option>
+												<option value="$50,001-$75000">$50,001-$75000</option>
+												<option value="$75,001-$100,000">$75,001-$100,000</option>
+												<option value="$100,000-$150,000"> $100,001-$150,000</option>
+												<option value="$150,001-$250,000">$150,001-$250,000</option>
+												<option value="$250,000-$1,000,000">$250,001-$1,000,000</option>
+												<option value="$1,000,000+">$1,000,001+</option>
+												<option value="other">Other</option>
+											</select>
+											<!-- 	<span class="text-danger"
+												*ngIf="(income_proFormControl.income.touched || income_proForm_submitted) && income_proFormControl.income.errors?.required">
+												Income is required
+											</span> --><span class="showother" style="display:none;">
+				                        <label for="other-income">Other</label><br>
+				                        <input type="text" formControlName="other_income" class="step-input showotherincometab">
+				                     	 </span> </div>
+										<div class="col-md-2 col-lg-2"> </div>
+										<div class="col-md-12">
+											<br>
+											<button type="button" value="currently_employee" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<button class="btn submit">NEXT</button>
+											<!-- <button type="button" [hidden]="title_profession"  (click)="show_past_futute_conf()" class="btn submit">Skip</button> -->
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="goal_past_work" [hidden]="!goal_past_work">
+								<div class="row  text-center mx-0">
+									<div class="col-md-12">
+										<h4 class="main-heading text-center">Would you like to add past work, future goals, or current positions?</h4>
+										<br>
+										<br>
+										<button class="btn btn_family mb-3 threetab" (click)="show_past_work()">PAST WORK</button>
+										<button class="btn btn_family mb-3 threetab" (click)="show_current_work()">CURRENT WORK</button>
+										<button class="btn btn_family mb-3 threetab futuregoal" value="reset" (click)="show_future_goal_tab($event);"> FUTURE GOALS</button>
+										<br>
+										<br>
+										<button type="button" value="threeTabs" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;
+										<button type="button" class="btn submit" (click)="skip_future_past()">NEXT</button>
+									</div>
+								</div>
+							</div>
+							<div class="prevoiius_word" [hidden]="!previous_work">
+								<h4 [hidden]="!past_work_title" class="main-heading text-center">Please tell us about your past work experience
+								</h4>
+								<h4 [hidden]="!current_work_title" class="main-heading text-center">Please tell us about your current work experience
+								</h4>
+								<br>
+								<br>
+								<form [formGroup]="pastworkform" (submit)="save_previous_work()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row text-center kids_detais">
+										<div class="col-lg-3"> </div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label for="profession"> Profession</label>
+														<br>
+														<select formControlName="profession" class="step-input professionother" name="profession" (change)="profession_chnage($event)">
+															<option value="" selected>Select Profession</option>
+															<option *ngFor="let profession of professionlist" [value]="profession">{{profession}}</option>
+															<option value="other">Other</option>
+														</select>
+														<br> <span [hidden]="!profession_other">
+								                        <label for="other">Other Profession</label><br>
+								                        <input formControlName="other" type="text" class="step-input"
+								                          placeholder="Other Profession"></span> </div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label for="income">Annual Income</label>
+														<br>
+														<select class="step-input incomeother" formControlName="income" name="income">
+															<option value="" selected>Select Annual Income</option>
+															<option value="no income">No income</option>
+															<option value="Under $15,000">Under $15,000</option>
+															<option value="$15,001-$25,000">$15,001-$25,000</option>
+															<option value="$25,001-$35,000">$25,001-$35,000</option>
+															<option value="$35,001-$50,000">$35,001-$50,000</option>
+															<option value="$50,001-$75000">$50,001-$75000</option>
+															<option value="$75,001-$100,000">$75,001-$100,000</option>
+															<option value="$100,000-$150,000"> $100,001-$150,000 </option>
+															<option value="$150,001-$250,000">$150,001-$250,000</option>
+															<option value="$250,000-$1,000,000">$250,001-$1,000,000 </option>
+															<option value="$1,000,000+">$1,000,001+</option>
+															<option value="other">Other</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label>From</label>
+														<input type="text" id="input1" class="step-input family_age_dob month_dob_slashes" formControlName="date_from" placeholder="mm/yyyy" name="age" /> 
+														<span class="text-danger dob_error_msg" style="color:red" [hidden]="!date_error_message_from" class="main-heading text-center">Valid date is required
+														</span>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group"  
+													[hidden]="!cueent_past_present">
+														<label>To</label>
+														<input type="text" id="input1" class="step-input family_age_dob month_dob_slashes"  formControlName="date_to" placeholder="mm/yyyy" name="age" /> 
+														<span class="text-danger dob_error_msg" style="color:red" [hidden]="!date_error_message" class="main-heading text-center">Valid date is required
+														</span>
+													</div>
+													<div class="form-group" [hidden]="cueent_past_present">
+					                                  <label>To</label>
+					                                  <input type="text" class="step-input family_age_dob month_dob_slashes" 
+					                                    formControlName="update_to_present" placeholder="Present" name="Present" readonly="" />
+					                                </div>  
+													<span  [hidden]="!current_work_title"> 
+				                                    <input class="currentwork" (change) = "update_to_present($event)" type="checkbox" class="currently_checkedbox" [checked]="currently_isChecked"> I currently work in this role
+				                                  </span>
+												</div>
+											</div>
+											<br>
+											<button type="button" value="past_future" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<a href="#">
+												<button type="btn submit" class="btn submit" [disabled]="isDisabled_past_to">NEXT</button>
+											</a>
+										</div>
+										<div class="col-lg-3"> </div>
+									</div>
+								</form>
+							</div>
+							<div class="future_goals" [hidden]="!future_goals">
+								<h4 class="main-heading text-center">The world is your oyster, <br> what are your dreams and ambitions?</h4>
+								<br>
+								<br>
+								<form [formGroup]="future_goalform" (submit)="save_future_goal()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<input type="hidden" formControlName="form_type" name="form_type" value="future_goal">
+									<div class="row text-center kids_detais">
+										<div class="col-lg-3"> </div>
+										<div class="col-lg-6">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label for="profession"> Profession</label>
+														<br>
+														<select formControlName="profession" class="step-input professionother" name="profession" (change)="future_goal_other_show($event)">
+															<option value="" disabled selected>Select Profession</option>
+															<option *ngFor="let profession of professionlist" [value]="profession">{{profession}}</option>
+															<option value="other">Other</option>
+														</select>
+														<br> <span [hidden]="!future_goal_other">
+								                        <label for="other">Other Profession</label><br>
+								                        <input formControlName="other" type="text" class="step-input"
+								                          placeholder="Other Profession"></span> </div>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-6">
+													<div class="form-group">
+														<label for="income"> Annual Income</label>
+														<br>
+														<select class="step-input incomeother" formControlName="income" name="income">
+															<option value="" selected>Select Annual Income</option>
+															<option value="no income">No income</option>
+															<option value="Under $15,000">Under $15,000</option>
+															<option value="$15,001-$25,000">$15,001-$25,000</option>
+															<option value="$25,001-$35,000">$25,001-$35,000</option>
+															<option value="$35,001-$50,000">$35,001-$50,000</option>
+															<option value="$50,001-$75000">$50,001-$75000</option>
+															<option value="$75,001-$100,000">$75,001-$100,000</option>
+															<option value="$100,000-$150,000"> $100,001-$150,000 </option>
+															<option value="$150,001-$250,000">$150,001-$250,000</option>
+															<option value="$250,000-$1,000,000">$250,001-$1,000,000 </option>
+															<option value="$1,000,000+">$1,000,001+</option>
+															<option value="other">Other</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<button type="button" value="past_future" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+											<a href="#">
+												<button type="submit" class="btn submit">NEXT</button>
+											</a>
+											<!-- &nbsp;&nbsp;&nbsp;
+											&nbsp;&nbsp;&nbsp;<p class="btn make_btn" (click)="skip__future_goal()">SKIP
+											</p> -->
+										</div>
+										<div class="col-lg-3"> </div>
+									</div>
+								</form>
+							</div>
+							<div class="future_goal_end" [hidden]="!future_goal_end">
+								<form [formGroup]="future_enddate_form" (submit)="save_future_end_date()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4">
+											<h4 class="main-heading text-center">Would you like to set an end date for
+												this goal?</h4>
+											<br>
+											<br>
+											<div class="form-group">
+												<input type="text" id="input1" class="step-input family_age_dob month_dob_slashes"  formControlName="end_date" placeholder="mm/yyyy" name="end_date" />
+												<span class="text-danger dob_error_msg" style="color:red" [hidden]="!date_error_message_future" class="main-heading text-center">Valid date is required
+												</span>
+											</div>
+											<br>
+											<br>
+											<button type="button" value="notreset" (click)="show_future_goal_tab($event);" class="btn submit">PREV</button> &nbsp;&nbsp;&nbsp;
+											<button type="submit" class="btn submit" [disabled]="isDisabled_future">NEXT</button>
+											<!-- &nbsp;&nbsp;&nbsp;<p class="btn make_btn" (click)="skip_goal()">SKIP</p> -->
+										</div>
+										<div class="col-md-4"> </div>
+									</div>
+								</form>
+							</div>
+							<!-- end Profession  -->
+							<!-- interest -->
+							<div class="show_interests" [hidden]="!show_interests">
+								<form [formGroup]="interestform" (submit)="save_intersts()">
+									<input type="hidden" formControlName="user_id" name="user_id" value="">
+									<div class="row  text-center mx-0">
+										<div class="col-md-4"> </div>
+										<div class="col-md-4"> <span [hidden]="!interest_first_field">
+											<h4 class="main-heading text-center">Tell us about your interests. What
+												makes you smile?</h4>
+											<br><br>
+											<div class="form-group">
+											
+												<select formControlName="interest" class="step-input" id="legal"
+													name="legal-details" (change)="onchnage_interest($event)">
+													<option value="" selected>Select Interest</option>
+													<option *ngFor="let ints of interestslist.data" [value]="ints.id">
+														{{ints?.name}}</option>
+													<option value="addinterest">Other</option>
+												</select>
+												<span [hidden]="!addnewinterest_other">
+								                        
+								                        <input formControlName="new_interest" type="text" class="step-input"
+								                          placeholder="Add Interest"></span> </div>
+										</span>
+										<div class="" [hidden]="!show_interests_description">
+											<h4 class="main-heading text-center">If you love it, we love it! <br>
+											Would you like to add a description?</h4>
+											<br>
+											<div class="form-group">
+												<textarea class="input-step" rows="7" formControlName="describe"></textarea>
+											</div>
+										</div>
+										<br>
+										<button [hidden]="!interest_first_field" type="button" value="past_future" (click)="prev_section($event)" class="btn submit">PREV</button>
+										<button [hidden]="!show_interests_description" type="button" value="show_interest" (click)="prev_section($event)" class="btn submit">PREV</button> &nbsp;&nbsp;&nbsp;
+										<button [hidden]="!show_interests_description" type="submit" class="btn submit">NEXT</button> &nbsp;&nbsp;&nbsp;
+										<button [hidden]="show_interests_description" type="button" (click)="show_interest_descrition()" class="btn submit">NEXT</button>
+									</div>
+									<div class="col-md-4"> </div>
+							</div>
+							</form>
+						</div>
+						<!-- end interest -->
+						<!-- other legal  -->
+						<div class="other_legal_interest" [hidden]="!other_legal_interest">
+							<form [formGroup]="other_legal_form" (submit)="save_other_legal_interest()">
+								<div class="row  text-center mx-0">
+									<div class="col-md-4"> </div>
+									<div class="col-md-4">
+										<h4 class="main-heading text-center">Are there more legal matters you'd like to keep on the radar?</h4>
+										<div class="legal_dropsown">
+											<!-- <label>Legal Matter</label> -->
+											<select formControlName="legal_area" class="step-input" id="legal" (ngModelChange)="onChange_other_interests($event)" name="legal-details">
+												<option value="" selected>Select Legal Matter</option>
+												<option *ngFor="let legal of get_other_legal_details.data" [value]="legal.id">{{legal?.name}}</option>
+											</select>
+										</div>
+										<div class="legal_issue">
+											<!-- <label>Legal Issue</label> -->
+											<select formControlName="sub_legal_area" class="step-input" id="legal" name="legal-details">
+												<option value="" selected>Select Legal Issue</option>
+												<option *ngFor="let legal of get_sub_interests" [value]="legal.id"> {{legal?.name}}</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<!-- <label>Description</label> -->
+											<textarea class="input-step" placeholder = "Legal Description" class="input-step" rows="3" formControlName="describe" >Legal Description</textarea>
+										</div>
+										<br>
+										<button type="button" value="show_interest" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+										<button type="submit" class="btn submit">NEXT</button>
+										<!-- &nbsp;&nbsp;&nbsp;<p class="btn make_btn" (click)="skip_other_legal()">SKIP
+											</p> -->
+									</div>
+									<div class="col-md-4"> </div>
+								</div>
+							</form>
+						</div>
+						<div class="more_interest" [hidden]="!more_interest">
+							<div class="row  text-center mx-0">
+								<div class="col-md-12">
+									<h4 class="main-heading text-center">Would you like to add more lnterests? </h4>
+									<br>
+									<br>
+									<button type="button" (click)="skip_goal()" class="btn submit">YES</button>&nbsp;&nbsp;&nbsp;
+									<button type="button" (click)="skip_more_interest()" class="btn submit">NO</button>
+								</div>
+							</div>
+						</div>
+						<div class="more_Legal_matter" [hidden]="!more_Legal_matter">
+							<div class="row  text-center mx-0">
+								<div class="col-md-12">
+									<h4 class="main-heading text-center">Would you like to add more legal matters? </h4>
+									<br>
+									<br>
+									<button type="button" (click)="skip_more_interest()" class="btn submit">YES</button>&nbsp;&nbsp;&nbsp;
+									<button type="button" (click)="skip_other_legal()" class="btn submit">NO</button>
+								</div>
+							</div>
+						</div>
+						<!-- end other legal  -->
+						<div class="almostDone" [hidden]="!almostDone">
+							<div class="row 
+								 text-center mx-0">
+								<div class="col-md-12">
+									<h4 class="main-heading text-center">You're doing great!<br> We're almost finished setting up your profile.</h4>
+									<br>
+									<br>
+									<button type="button" value="show_interest" (click)="prev_section($event)" class="btn submit">OK</button>&nbsp;&nbsp;&nbsp; </div>
+							</div>
+						</div>
+						<!-- congratulations -->
+						<div class="congratulations" [hidden]="!congratulations">
+							<div class="row  text-center mx-0">
+								<div class="col-md-12">
+									<h2 class="main-heading text-center">CONGRATULATIONS! </h2>
+									<h4 class="main-heading text-center">You have successfully completed your
+											profile! </h4>
+									<br>
+									<br>
+									<button type="button" value="show_other_legal" (click)="prev_section($event)" class="btn submit">PREV</button>&nbsp;&nbsp;&nbsp;
+									<button data-toggle="modal" data-target="#success_message_pop"  class="btn submit">NEXT STEP TO SUCCESS</button>
+								</div>
+							</div>
+						</div>
+						<!--end congratulations -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- The Modal -->
+    <div class="modal" id="success_message_pop" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Nice Work!!</h4>
+              <button type="button" id="closebutton_notes" class="close "
+                data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+
+            <div class="modal-body text-center">
+              <p>You've completed your profile!</p>
+			  <p>Please take a moment to verify each section is completed and correct.</p>
+			  <button (click)="move_to_summary()" class="btn submit confirm-btn">OK</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- end modal -->
+                          <div class="modal fade" id="funnel_popup" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                 <!--    <button type="button" id="closebutton_upgrademembership" class="close " data-dismiss="modal">&times;</button> -->
+                    <div class="modal-body">
+                      <h4 class="main-heading text-center">WELCOME BACK!
+                      </h4>
+                      <p class="text-center">It looks like your account setup isn't completed yet. <br> No worries, we saved your spot.</p>
+                         <ul class="funnel_lsit_checkbox">
+
+                      <li *ngFor="let q of qsg?.data;let i = index" class="add-checkbox" [ngClass]="{'activetab':q.page_status === ''}"><input type="checkbox" [checked]="q.page_status" disabled="" > &nbsp;&nbsp; {{ q?.name }}
+                      	<span
+                      	*ngIf="q.page_status === '' && q.continue_from === 'completed'">
+                      	<img src="assets/images/hand.png" class="iconimg"> You are here
+                      	</span>
+                      </li>
+                  </ul>
+                  <div class="col-md-12 text-center">
+                      <button type="btn"class="btn close " data-dismiss="modal" >OK</button>
+                  </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+</section>

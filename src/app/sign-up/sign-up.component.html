@@ -1,0 +1,138 @@
+
+<section class="lawyer-intro-section section">
+    <div class="container">
+     <div class="col-md-6 signupform">
+                            <form [formGroup]="signupsForm" (submit)="singnup()" autocomplete="off">
+                             <h4 class="">Create Account</h4>
+                                <h5>Basic Details</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="first-name"> First Name<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="text" formControlName="firstname" name="firstname"
+                                            placeholder="John" required="" class="step-input"
+                                            autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.firstname.touched || singup_submitted) && registerFormControl.firstname.errors?.required">
+                                            First name is required
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="first-name"> Last Name<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="text" formControlName="lastname" name="lastname" placeholder="Doe"
+                                            class="step-input" autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.lastname.touched || singup_submitted) && registerFormControl.lastname.errors?.required">
+                                            Last name is required
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="email"> Email<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="email" email="true" formControlName="email" name="email"
+                                            placeholder="Example@gmail.com" class="step-input"
+                                            autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.email.touched || singup_submitted) && registerFormControl.email.errors?.required || registerFormControl.email.errors?.pattern">
+                                            Valid email is required
+                                        </span>
+                                        <span [hidden]="!emailerror" class="text-danger">Email already exists</span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="phone"> Phone<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="tel" (click)="phone_valiadte()" mask="(000) 000-0000"
+                                            id="signup_phone" formControlName="phone" name="phone" 
+                                            placeholder="(XXX) XXX-XXXX" class="step-input"
+                                            autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.phone.touched || singup_submitted) && registerFormControl.phone.errors?.required || registerFormControl.phone.errors?.pattern">
+                                            10 digit phone required
+                                        </span>
+                                        <span [hidden]="!phoneerror" class="text-danger">Phone already exists</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="services"> What is your Legal Matter?</label>
+                                        <br>
+                                        <select formControlName="legal_id" class="step-input signup_show_other"
+                                            id="legal_id" name="legal_id">
+                                            <option value="" selected disabled>Select Legal Matter</option>
+                                            <option *ngFor="let legal of get_other_legal_details.data"
+                                                [value]="legal.id">{{legal.name}}</option>
+                                            <option value="other">Other</option>
+
+                                        </select>
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.legal_id.touched || singup_submitted) && registerFormControl.legal_id.errors?.required">
+                                            Legal matter is required
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <label for="state"> State<span class="text-danger"> *</span></label><br>
+                                        <select formControlName="state" class="step-input" id="state" name="state">
+
+                                           <option value="" selected disabled>Select State</option>
+                                            <option *ngFor="let state of statelist.data" [value]="state.name">
+                                                {{state.name}}</option>
+
+                                        </select>
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.state.touched || singup_submitted) && registerFormControl.state.errors?.required">
+                                            State is required
+                                        </span>
+                                
+                                    </div>
+
+                                </div>
+                                <div class="row show_other_legal" style="display:none;">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="other"> Legal Matter</label>
+                                        <br>
+                                        <input type="text" formControlName="other_legal_id" name="other_legal_id"
+                                            placeholder="Legal Matter" class="step-input">
+
+                                    </div>
+                                </div>
+                             
+
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+
+                                        <input type="checkbox" formControlName="terms" name="terms" class="">
+                                        I agree to the <a target="_blank" (click)="go_to_policy()" href="/">Privacy
+                                            Policy</a>
+                                        and <a target="_blank" (click)="go_to_terms()" href="/">Terms of Service</a>
+                                        <br><span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.terms.touched || singup_submitted) && registerFormControl.terms.errors?.required">
+                                            Accept Privacy Policy and Terms of Service
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+
+                                    <input type="hidden" name="closemodel" formControlName="closemodel" value=""
+                                        >
+                                    <div class="col-md-12 col-lg-12 mt-3">
+                                        <div class=" d-block text-center">
+                                            <button type="submit" class="btn closemodelbutton get-s">Get Started</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+             
+
+       
+    </div>
+</section>
+
+
+

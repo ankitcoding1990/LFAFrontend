@@ -1,0 +1,124 @@
+
+section.section {
+  padding: 30px 0;
+}
+.signupform{
+  margin: auto;
+}
+.main-h2 {
+  color: var(--heading-color);
+  font-size: 31px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  line-height: 39px;
+}
+
+button.btn {
+  background: var(--bg-primary);
+  color: white;
+  font-size: 12px;
+  padding: 8px 15px;
+  border: 1px solid rgba(121, 121, 121, 1);
+  font-weight: 500;
+}
+
+img.img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+img.img.lay-img {
+  opacity: .5;
+}
+
+img.net-img {
+  max-width: 100%;
+  height: auto;
+  width: 60px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+section.lawyer-network-section.section {
+  background: var(--bg-gray-2)
+}
+
+.net-card h3 {
+  font-size: 17px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.net-card p {
+  font-size: 13px;
+  color: var(--sub-heading-color);
+  text-align: center;
+  width: 76%;
+  margin: auto;
+}
+
+section.lawyer-service-section.section h2.main-heading {
+  margin-bottom: 10px;
+}
+
+.container.service-container {
+  margin-top: 30px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.service-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 13px;
+  color: var(--sub-heading-color);
+}
+
+img.service-img {
+  width: 120px;
+  height: auto;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .net-card {
+    margin-bottom: 30px;
+  }
+
+  h2.main-heading {
+    font-size: 17px;
+  }
+  .main-h2{
+    color: var(--heading-color);
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+  }
+  .service-card * {
+    text-align: center;
+  }
+
+  img.service-img {
+    margin: auto !important;
+    display: block;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media screen  and (max-width: 576px) {
+  .service-card {
+    display: block;
+  }
+}

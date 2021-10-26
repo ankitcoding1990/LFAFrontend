@@ -1,0 +1,515 @@
+<section class="section step-section">
+  <div class="container-fluid c-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12" id="">
+        <div class="row">
+          <div class=" col-lg-3 col-md-3 nav-horizontal-mobile mb-3 hidepgeqsg">
+          <app-quickstartquide></app-quickstartquide>
+          </div>
+          <div class="col-lg-9 col-md-9">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active cir-main-tab" id="v-pills-basics" role="tabpanel"
+                aria-labelledby="v-pills-basics-tab">
+                <div class="tabs" >
+                    <div class="nav-area" [hidden]="showsubnav" id="navarea">
+                      <div class="arrow-div1" id="slideBack">
+                        <i class="fa fa-chevron-left"></i>
+                      </div>
+                      <ul class="cir-tab nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                              <a class="nav-link " id="v-pills-basic-tab"  [routerLink]="['/complete-profile']" data-toggle="pill" href="#tabs-1" role="tab"
+                          aria-controls="v-pills-basic" aria-selected="true" >Profile</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-legal-tab" data-toggle="pill" [routerLink]="['/qsg-legal-details']"  role="tab"
+                          aria-controls="v-pills-legal" aria-selected="false" >Legal Details</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-family-tab" data-toggle="pill" [routerLink]="['/qsg-family-details']" role="tab"
+                          aria-controls="v-pills-family" aria-selected="false" >Family Details</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" id="v-pills-income-tab" data-toggle="pill" [routerLink]="['/qsg-incomeprofession-details']" role="tab"
+                         aria-controls="v-pills-income" aria-selected="false" >Profession & Income </a>
+                        </li>
+                        <li class="nav-item">
+                         <a class="nav-link" id="v-pills-pets-tab" data-toggle="pill" [routerLink]="['/qsg-pets-details']" role="tab"
+                          aria-controls="v-pills-pets" aria-selected="false" >Pets</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-interest-tab" data-toggle="pill" [routerLink]="['/qsg-interests-details']" role="tab"
+                         aria-controls="v-pills-interest" aria-selected="false" >Interests</a>
+                        </li>
+                         <li class="nav-item">
+                              <a class="nav-link" id="v-pills-other-tab" data-toggle="pill" [routerLink]="['/qsg-otherinterests-details']" role="tab"
+                           aria-controls="v-pills-other" aria-selected="false">Other Legal Interests</a>
+                        </li>
+                         <li class="nav-item">
+                          <a class="nav-link" id="v-pills-summary-tab" data-toggle="pill" [routerLink]="['/qsg-profilesummary-details']" role="tab"
+                            aria-controls="v-pills-other" aria-selected="false" >Profile Summary</a>
+                        </li>
+                         <!--li class="nav-item">
+                        <a class="nav-link" id="v-pills-docstorage-tab" data-toggle="pill" href="#tabs-9" role="tab"
+                              aria-controls="v-pills-docstorage" aria-selected="false">Document Storage</a>
+                        </li--> 
+                      </ul>
+                      <div class="arrow-div" id="slide1">
+                        <i class="fa fa-chevron-right"></i>
+                      </div>
+                    </div>
+                    <div class="tab-content" id="pills-tabContent">
+                     <div class="tab-pane fade show active" id="tabs-1" role="tabpanel"
+                aria-labelledby="v-pills-basic-tab">
+
+                <div class="">
+<div class="row">
+<div class="col-lg-12">
+<h4 class="main-heading">Profession & Income Details</h4>
+<p class="main-sub-para">List your current job(s), past work experience and future professional goals.<br>
+<i>HINT: If you select Other, you can write your own profession or goal</i>
+</p>
+</div>
+
+</div>
+
+<form [formGroup]="incomeForm" (ngSubmit)="saveuserlncome()">
+<fieldset [disabled]="disable_btn_work">
+<input type="hidden" formControlName="user_id" name="user_id">
+<!-- <div class="row">
+<div class="col-md-6 col-lg-6">
+<label for="profession"> Profession</label><br>
+<select formControlName="profession" class="step-input professionother" name="profession">
+<option value="" selected>Select Profession</option>
+<option *ngFor="let profession of professionlist" [value]="profession">{{profession}}</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="col-md-6 col-lg-6 showotherprofession" style="display:none;">
+<label for="other">Other Profession</label><br>
+<input formControlName="other" type="text" class="step-input showotherprofessiondetails"
+placeholder="Other Profession">
+</div>
+
+</div> -->
+<!-- <div class="row">
+<div class="col-md-6 col-lg-6">
+<label for="income">Annual Income</label><br>
+<select class="step-input incomeother" formControlName="income" name="income">
+<option value="" selected>Select Annual income</option>
+<option value="no income">No income</option>
+<option value="Under $15,000">Under $15,000</option>
+<option value="$15,001-$25,000">$15,001-$25,000</option>
+<option value="$25,001-$35,000">$25,001-$35,000</option>
+<option value="$35,001-$50,000">$35,001-$50,000</option>
+<option value="$50,001-$75000">$50,001-$75000</option>
+<option value="$75,001-$100,000">$75,001-$100,000</option>
+<option value="$100,000-$150,000"> $100,001-$150,000</option>
+<option value="$150,001-$250,000">$150,001-$250,000</option>
+<option value="$250,000-$1,000,000">$250,001-$1,000,000</option>
+<option value="$1,000,000+">$1,000,001+</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="col-md-6 col-lg-6 showother" style="display:none;">
+<label for="other-income">Other Income</label><br>
+<input type="text" formControlName="other_income" class="step-input showotherincometab" placeholder="Other Income">
+</div>
+</div><br>
+<br> -->
+<span class="">
+<button type="button" class="btn btn-primary mb-2" data-toggle="modal"
+data-target="#past_work_Modal" value="current" (click)="reset_add_past_from($event)"> Add Current Work
+</button>
+&nbsp;&nbsp;
+<button type="button" class="btn btn-primary mb-2" data-toggle="modal"
+data-target="#past_work_Modal"  value="past"(click)="reset_add_past_from($event)">
+Add Past Work
+</button>
+&nbsp;&nbsp;
+<button type="button" class="btn btn-primary mb-2" data-toggle="modal"
+data-target="#future_goal_Modal" (click)="reset_futuregoal_from()">
+Add Future Goal
+</button>
+</span>
+<br>
+<br>
+<div class="row">
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+<h5 class="main-heading">Work Experience</h5>
+<table id="dtBasicExample"
+class="table table-responsive table-striped table-bordered table-sm text-center">
+<thead>
+<tr>
+<th class="th-sm">Action </th>
+<th>Current Job</th>
+<th class="th-sm">Profession </th>
+<th class="th-sm">Income </th>
+<th class="th-sm">Start Date </th>
+<th class="th-sm">End Date </th>
+<th class="th-sm">Description </th>
+
+
+</tr>
+</thead>
+<tbody>
+<!-- <tr>
+<td></td>
+<td>Yes</td>
+<td>{{this.userprofessionaldetails?.data?.other}}</td>
+<td>{{this.incomedetails?.data?.income}}</td>
+<td></td>
+<td></td>
+<td></td>
+</tr> -->
+<tr *ngFor="let pastwork of past_work.data;">
+<td>
+<span data-toggle="modal" data-target="#past_work_Modal" [ngClass]="disable_btn_work ? 'work_enable' : 'success'" 
+(click)="edit_past_work(pastwork.id,pastwork.profession,pastwork.income,pastwork.date_from,pastwork.date_to,pastwork.description,pastwork.current_job,pastwork.other)"><i
+class="fa fa-edit"></i></span>
+&nbsp;<span [ngClass]="disable_btn_work ? 'work_enable' : 'success'"  (click)="delete_past_work(pastwork.id)"><i class="fa fa-trash"></i></span>
+</td>
+<td>Yes</td>
+<td>
+<span *ngIf="pastwork.other?.length >0 else other_profession">{{ pastwork.other }}
+</span>
+<ng-template #other_profession> {{ pastwork.profession }}</ng-template>
+</td>
+<td>{{pastwork.income}} </td>
+<td><span *ngIf="pastwork.date_from">
+{{pastwork.date_from}}</span>
+</td>
+<td><span *ngIf="pastwork.date_to">
+{{pastwork.date_to}}</span>
+</td>
+<td>{{pastwork.description}} </td>
+</tr>
+<tr *ngFor="let pastwork of past_work.datapast;">
+<td>
+<span data-toggle="modal" data-target="#past_work_Modal" [ngClass]="disable_btn_work ? 'work_enable' : 'success'" 
+(click)="edit_past_work(pastwork.id,pastwork.profession,pastwork.income,pastwork.date_from,pastwork.date_to,pastwork.description,pastwork.current_job,pastwork.other)"><i
+class="fa fa-edit"></i></span>
+&nbsp;<span [ngClass]="disable_btn_work ? 'work_enable' : 'success'"  (click)="delete_past_work(pastwork.id)"><i class="fa fa-trash"></i></span>
+</td>
+<td>No</td>
+<td>
+<span *ngIf="pastwork.other?.length >0 else other_profession">{{ pastwork.other }}
+</span>
+<ng-template #other_profession> {{ pastwork.profession }}</ng-template>
+</td>
+<td>{{pastwork.income}} </td>
+<td><span *ngIf="pastwork.date_from">
+{{pastwork.date_from}}</span>
+</td>
+<td><span *ngIf="pastwork.date_to">
+{{pastwork.date_to}}</span>
+</td>
+<td>{{pastwork.description}} </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<br>
+<div class="row">
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+<h5 class="main-heading">Future Goals</h5>
+<table id="dtBasicExample"
+class="table table-responsive table-striped table-bordered table-sm text-center">
+<thead>
+<tr>
+<th class="th-sm">Action </th>
+<th class="th-sm">Profession </th>
+<th class="th-sm">Income </th>
+<th class="th-sm">Start Goal On </th>
+<th class="th-sm">Achieve Goal By </th>
+<th class="th-sm">Description </th>
+
+
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let future of future_goal.data;">
+<td>
+<span [ngClass]="disable_btn_work ? 'work_enable' : 'success'" data-toggle="modal" data-target="#future_goal_Modal"
+(click)="edit_future_goal(future.id,future.profession,future.income,future.start_date,future.end_date,future.description,future.other)"><i
+class="fa fa-edit"></i></span>
+&nbsp;
+<span [ngClass]="disable_btn_work ? 'work_enable' : 'success'" (click)="delete_future_goal(future.id)"><i class="fa fa-trash"></i></span>
+</td>
+<td>
+<span *ngIf="future.other?.length >0 else other_profession">{{ future.other }}
+</span>
+<ng-template #other_profession> {{ future.profession }}</ng-template>
+</td>
+
+<td>{{future.income}} </td>
+
+<td><span *ngIf="future.start_date">
+{{future.start_date}}</span>
+</td>
+<td><span *ngIf="future.end_date">
+{{future.end_date}}</span>
+</td>
+<td>{{future.description}} </td>
+
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</fieldset>
+<div class="update-button text-right">
+<button [hidden]="!save_btn_work" type="submit" class="btn pull-left mr-3 professionsavebtn">Save</button>
+<button  [hidden]="save_btn_work" type="button" class="btn pull-left mr-3 professionsavebtn" (click)="toggle_save_edit($event)" value="work_edit">Edit</button>
+</div>
+
+</form>
+
+<div class="update-button text-right">
+
+<button type="button" (click)="PrevTab()" class="btn prevfamilyform mr-2 mb-2 btnactive"> Prev</button>
+
+
+<button (click)="NextTab()" class="btn prevpetform mr-2 mb-2 btnactive">Next</button>
+</div>
+
+</div>
+<div class="modal fade" id="past_work_Modal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 [hidden]="!cueent_past_title" class="modal-title" id="exampleModalLabel">Add Past Work</h5>
+<h5 [hidden]="cueent_past_title" class="modal-title" id="exampleModalLabel">Add Current Work</h5>
+<button type="button" class="close_past_work" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<h5 [hidden]="!cueent_past_title" class="main-heading text-center">Please tell us about your previous work experience</h5>
+<h5 [hidden]="cueent_past_title" class="main-heading text-center">Please tell us about your Current work</h5>
+<form [formGroup]="pastworkform" (submit)="save_previous_work()">
+<input type="hidden" formControlName="user_id" name="user_id" value="">
+<input type="hidden" formControlName="id" name="id" value="">
+<div class="row kids_detais">
+<div class="col-lg-12">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group">
+<label for="profession"> Profession <span class="text-danger ">*</span></label>
+<select formControlName="profession" class="step-input profession" name="profession"
+(change)="show_past_other($event)">
+<option value="" selected>Select Profession</option>
+<option *ngFor="let profession of professionlist" [value]="profession">
+{{profession}}</option>
+<option value="Other">Other</option>
+</select>
+<span class="text-danger dob_error_msg"
+*ngIf="(pastworkFormControl.profession.touched || past_work_submitted) && pastworkFormControl.profession.errors?.required">
+Profession is required
+</span>
+<span [hidden]="!past_work_other">
+<label>Other Profession</label>
+<input type="text" class="step-input" formControlName="other" placeholder="Other Profession"
+name="other" />
+</span>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group">
+<label for="income">Annual Income</label>
+<select class="step-input incomeother" formControlName="income" name="income">
+<option value="">Select Annual Income</option>
+<option value="no income">No income</option>
+<option value="Under $15,000">Under $15,000</option>
+<option value="$15,001-$25,000">$15,001-$25,000</option>
+<option value="$25,001-$35,000">$25,001-$35,000</option>
+<option value="$35,001-$50,000">$35,001-$50,000</option>
+<option value="$50,001-$75000">$50,001-$75000</option>
+<option value="$75,001-$100,000">$75,001-$100,000</option>
+<option value="$100,000-$150,000"> $100,001-$150,000</option>
+<option value="$150,001-$250,000">$150,001-$250,000</option>
+<option value="$250,000-$1,000,000">$250,001-$1,000,000</option>
+<option value="$1,000,000+">$1,000,001+</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group">
+<label>From</label>
+<input type="text" class="step-input family_age_dob month_dob_slashes" 
+formControlName="date_from" placeholder="MM/YYYY" name="age" />
+<span class="text-danger dob_error_msg"
+*ngIf="(pastworkFormControl.date_from.touched || past_work_submitted) && (pastworkFormControl.date_from.errors?.dobProfileError_month)">
+Valid date is required
+</span>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group" [hidden]="!cueent_past_present">
+<label>To</label>
+<input type="text" class="step-input family_age_dob month_dob_slashes" 
+formControlName="date_to" placeholder="MM/YYYY" name="age" />
+<span class="text-danger dob_error_msg"
+*ngIf="(pastworkFormControl.date_to.touched || past_work_submitted) && (pastworkFormControl.date_to.errors?.dobProfileError_month || pastworkFormControl.date_to.errors?.required)">
+Valid date is required
+</span>
+</div> 
+<div class="form-group" [hidden]="cueent_past_present"> 
+<label>To</label>
+<input type="text" class="step-input family_age_dob month_dob_slashes" 
+formControlName="update_to_present" placeholder="Present" name="Present" readonly/>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="form-group">
+      <span  [hidden]="cueent_past_title"> 
+        <input (change) = "update_to_present($event)" type="checkbox" [checked]="currently_isChecked" class="currently_checkedbox"> I currently work in this role
+      </span>
+    </div>
+  </div>
+</div>
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<label>Description</label>
+<textarea formControlName="description" name="notes" rows="4" cols="50"
+style="width:100%"></textarea>
+</div>
+</div>
+<br>
+<a href="#"><button type="btn submit" class="btn submit">Save</button></a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="future_goal_Modal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Add Future Goal</h5>
+<button type="button" class="close_future_goal" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<h5 class="main-heading text-center">The world is your oyster, what are you dreams and ambitions?
+</h5>
+<br><br>
+<form [formGroup]="future_goalform" (submit)="save_future_goal()">
+<input type="hidden" formControlName="user_id" name="user_id" value="">
+
+<div class="row text-center kids_detais">
+
+<div class="col-lg-12">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group">
+<label for="profession"> Profession</label><br>
+<select formControlName="profession" class="step-input professionother"
+name="profession" (change)="show_furure_other($event)">
+<option value="" selected>Select Profession</option>
+<option *ngFor="let profession of professionlist" [value]="profession">
+{{profession}}</option>
+<option value="Other">Other</option>
+</select>
+<span class="text-danger dob_error_msg"
+*ngIf="(futuregoalFormControl.profession.touched || future_goal_submitted) && futuregoalFormControl.profession.errors?.required">
+Profession is required
+</span><br>
+<span [hidden]="!future_work_other">
+<label>Other Profession</label>
+<input type="text" class="step-input" formControlName="other" placeholder="Other Profession"
+name="Other" />
+</span>
+
+
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group">
+<label for="income">Annual Income</label><br>
+<select class="step-input incomeother" formControlName="income" name="income">
+<option value="">Select Annual Income</option>
+<option value="no income">No income</option>
+<option value="Under $15,000">Under $15,000</option>
+<option value="$15,001-$25,000">$15,001-$25,000</option>
+<option value="$25,001-$35,000">$25,001-$35,000</option>
+<option value="$35,001-$50,000">$35,001-$50,000</option>
+<option value="$50,001-$75000">$50,001-$75000</option>
+<option value="$75,001-$100,000">$75,001-$100,000</option>
+<option value="$100,000-$150,000"> $100,001-$150,000</option>
+<option value="$150,001-$250,000">$150,001-$250,000</option>
+<option value="$250,000-$1,000,000">$250,001-$1,000,000</option>
+<option value="$1,000,000+">$1,000,001+</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6">
+
+<div class="form-group">
+<label>Start Goal On</label>
+<input type="text" class="step-input month_dob_slashes"  formControlName="start_date" placeholder="MM/YYYY" name="start_date" />
+<span class="text-danger dob_error_msg" [hidden]="!future_date_error_message">
+Valid Date is required
+</span>
+</div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="form-group">
+<label>Achieve Goal By</label>
+<input type="text" class="step-input month_dob_slashes"  formControlName="end_date"
+placeholder="MM/YYYY" name="end_date" />
+<span class="text-danger dob_error_msg" 
+*ngIf="(futuregoalFormControl.end_date.touched || future_goal_submitted) && futuregoalFormControl.dobProfileError_future?.required">
+Valid Date is required                                   </span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12">
+<label>Description</label>
+<textarea formControlName="description" name="notes" rows="4" cols="50"
+style="width:100%"></textarea>
+</div>
+</div>
+<br>
+<a href="#"><button type="submit" [disabled]="isDisable_future" class="btn submit">Save</button></a>
+
+</div>
+</div>
+
+</form>
+</div>
+
+</div>
+</div>
+</div>
+              </div>
+                      
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- col 3 add here -->
+        </div>
+      </div>
+    </div>
+   </div>
+</section>

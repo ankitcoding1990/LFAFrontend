@@ -1,0 +1,181 @@
+<section class="form-section section">
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="logo-wrapper">
+                        <img src="assets/images/email-verify.png">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                 
+                    <div class="email-verify">
+                    
+                        <span [hidden]="!change_title">
+                        <h3>How would you like to verify your account?</h3>
+                        <h5> Select to receive a text or email with verification code</h5>
+                        </span>
+                        <span [hidden]="change_title">
+                        <h3>How would you like to receive your 
+                            <span [hidden]="!username_password">username</span><span [hidden]="username_password">password</span>?</h3>
+                        
+                        </span>
+                           <input class="form-check-input togglecases" type="radio" name="exampleRadios" id="exampleRadios1" value="email" checked>
+                        <div class="form-check form-check-inline">
+                              <label class="form-check-label" for="exampleRadios1">
+                                Email
+                              </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input class="form-check-input togglecases" type="radio" name="exampleRadios" id="exampleRadios2" value="sms">
+                          <label class="form-check-label" for="exampleRadios2">
+                            SMS
+                          </label>
+                        </div>
+                    
+                
+                    <div class="show_email_form">
+                    <form [formGroup]="loginForm" (submit)="emailverify()" >    
+                        <label for="email">Enter Email Address</label>
+                        <input type="hidden" name="url" id="url" value="321654">
+                        <input type="email" email="true" name="email" id="myemailset" #email formControlName="email" placeholder="Example@gmail.com" class="form-control myemailset" readonly required>
+                         <span class="text-danger"
+                                *ngIf="(loginFormControl.email.touched || basicfprofile_submitted) && loginFormControl.email.errors?.required || loginFormControl.email.errors?.pattern">
+                               Email is required
+                    </span>
+                    <div class="emailchange_btn">
+                        <button  type="button" class="btn btn-primary myeditbtn" data-toggle="modal" data-target="#my_change_email" [hidden]="!show_mail_btn">Change Email</button>
+                        <!-- <button type="button" class="btn btn-primary myeditbtn" [hidden]="!show_upload_button" (click)="UploadEmail(email.value)">Update</button> -->
+                    </div>
+                    
+                        <button type = "submit"  [disabled]="loading"class="btn long-btn w-100">SEND VERIFICATION CODE</button>
+                       
+                   
+                    </form> 
+                    
+                     </div>
+                     <div class="show_phone_form" style="display:none;">
+                     <form [formGroup]="phoneForm" (submit)="mobileverify()">
+                        <label for="phone">Enter Mobile Number</label>
+                        <input type="tel" name="phone" value="{{ userphone }}" formControlName="phone" mask="(000) 000-0000" placeholder="(XXX) XXX-XXXX"  class="form-control myemailset" required readonly>
+                         <span class="text-danger"
+                                *ngIf="(phoneverifyFormControl.phone.touched || phoneverify_submitted) && phoneverifyFormControl.phone.errors?.required || phoneverifyFormControl.phone.errors?.pattern">
+                                Valid mobile number required
+                    </span>
+                    <div class="emailchange_btn">
+                        <button [hidden]="!show_mail_btn" type="button" class="btn btn-primary myeditbtn" data-toggle="modal" data-target="#my_change_phone" (click)="onchangemobile(phone.value)" >Change Number</button>
+                        <!-- <button type="button" class="btn btn-primary myeditbtn" [hidden]="!show_update_mobile_button" (click)="onchangemobileUpdate(phone.value)">Update</button> -->
+                    </div>
+                        <button type="submit" class="btn long-btn w-100">SEND VERIFICATION CODE</button>
+                        </form>
+                        </div>
+                     </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="my_change_email" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Please confirm</h4>
+              <button type="button" id="closebutton_notes" class="close "
+                data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+
+            <div class="modal-body">
+              <form [formGroup]="loginForm" (submit)="emailverify_modal(update_email.value)" > 
+                <div class="form-group">
+                  <input type="hidden" formControlName="id">
+                  <label>This action will also change the email associated to your account.</label>
+                  <input type="email" email="true" name="email" id="myemailset" #update_email formControlName="email" placeholder="Example@gmail.com" class="form-control myemailset" required>
+                </div>
+                <!-- <button type="button" class="btn btn-primary myeditbtn" (click)="UploadEmail(update_email.value)">Update</button> -->
+                <button type="submit" class="btn btn-primary">Continue</button>&nbsp;
+                <button type="button" class="btn btn-primary" (click)="Cancelpopup()">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- end modal -->
+    <!-- Change Modal -->
+    <div class="modal" id="my_change_phone" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Please confirm</h4>
+              <button type="button" id="closebutton_phone" class="close "
+                data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+
+            <div class="modal-body">
+              <form [formGroup]="phoneForm" (submit)="Phoneverify_modal(phone.value)" > 
+                <div class="form-group">
+                  <input type="hidden" formControlName="id">
+                  <label>This action will also change the mobile associated to your account.</label>
+                  <input type="tel" name="phone" #update_phone formControlName="phone" mask="(000) 000-0000" placeholder="(XXX) XXX-XXXX"  class="form-control myphoneset" required >
+                </div>
+                <!-- <button type="button" class="btn btn-primary myeditbtn" (click)="UploadEmail(update_email.value)">Update</button> -->
+                <button type="submit" class="btn btn-primary">Continue</button>&nbsp;
+                <button type="button" class="btn btn-primary" (click)="Cancelpopup()">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- end modal -->
+
+
+</section>
+
+<!-- email verifty -->
+
+<section class="form-section section" style="display:none;">
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="logo-wrapper">
+                        <img src="assets/images/email-verify.png">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="email-verify">
+                        <h6>You're One Step Away</h6>
+                        <h3>Verify your email address</h3>
+                        <p>
+                            Please enter the 6 digit code send to abc@gmail.com.
+                        </p>
+                        <input type="" inputmode="numeric" autocomplete="one-time-code" maxlength="6"  name="number" class="form-control" placeholder="1234" required>
+                        <button class="btn long-btn w-100">VERIFY</button>
+                        <p _ngcontent-dws-c27="">Don't recieve the OTP? <a _ngcontent-dws-c27="" href="#">RESEND OTP</a></p>
+                        <div class="help">
+                            <div class="icon">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="text">
+                                <p>Have a question?</p>
+                                <a href="#">Help Centre</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</section>

@@ -1,0 +1,24 @@
+
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          
+            <div _ngcontent-gpv-c79="" class="nav nav-bar">
+              <div class="side-logo">
+                <h4 class="main-heading">Quick Start Guide</h4>
+              </div>
+              
+                <li _ngcontent-gpv-c79="" *ngFor="let q of qsg.data" class="nav-item removenumber qsglist">
+                  <a _ngcontent-gpv-c79="" [routerLink]="q.link" href="#" class="nav-link" routerLinkActive="active"
+                    id="qsg_{{ q.id}}">
+                    <input type="checkbox" [checked]="q.page_status">&nbsp; {{ q.name }}
+                  </a>
+                </li>
+                <li class="nav-item removenumber qsglistsummary">
+                  <a href="#" [routerLink]="['/summary-profile']" class="nav-link qsglistsummary">
+                     Quick Start Guide Summary
+                  </a>
+                </li>
+        
+            </div>
+
+            </div>
+         

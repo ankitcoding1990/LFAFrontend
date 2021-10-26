@@ -1,0 +1,377 @@
+.legal-services-section .wrapper h3.main-heading {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.legal-services-section .wrapper .sub-heading {
+  display: flex;
+}
+
+.wrapper > p {
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.legal-services-section .wrapper .sub-heading h4 {
+  font-weight: 700;
+}
+
+.sub-heading h4 {
+  font-size: 21px;
+}
+
+.legal-services-section .wrapper .sub-heading h4 span {
+  font-weight: 400;
+}
+
+.legal-services-section .wrapper .sub-heading .sub-span {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+
+.help-family-law {
+  padding-top: 20px;
+}
+
+.help-family-law .wrapper {
+  display: flex;
+  border: 1px solid #aaaaaa;
+  margin-bottom: 30px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.help-family-law .wrapper .image img {
+  height: 100%;
+  width: 100%;
+}
+
+.help-family-law .wrapper span.court {
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid #797979;
+  font-size: 11px;
+  padding: 2px 0;
+  display: block;
+  left: 0px;
+  top: -10px;
+  font-weight: 500;
+}
+
+.help-family-law .wrapper .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0px 10px 30px;
+      padding-top: 30px;
+}
+
+.help-family-law .wrapper .content span.popular {
+  position: absolute;
+  background: #f59a23;
+  right: 30px;
+  top: -10px;
+  font-size: 11px;
+  padding: 2px 0;
+  width: 90px;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid #797979;
+}
+
+.help-family-law .wrapper .content h5 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.help-family-law .wrapper .content h5 span {
+  color: var(--bg-primary);
+}
+
+.help-family-law .wrapper .content p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.help-family-law .wrapper .content .start-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.help-family-law .wrapper .content .start-btn span {
+  margin-left: auto;
+  display: block;
+  color: #7F7F7F;
+  font-size: 13px;
+  font-weight: 700;
+  padding-right: 10px;
+  text-align: right;
+
+}
+
+span.mins {
+  padding-right: 0 !important;
+}
+
+.help-family-law .wrapper .content .start-btn span.mins {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+.wrapper-second .box {
+  background: #f2f2f2;
+  text-align: center;
+  padding: 60px 40px;
+  margin-top: 50px;
+  font-weight: 700;
+}
+
+a.tag {
+  margin: 5px 5px;
+}
+
+.legal-topics {
+  padding-top: 30px;
+}
+
+.legal-topics h5 {
+  font-weight: 700;
+}
+
+.legal-topics h5 ~ p {
+  font-size: 13px;
+  color: var(--sub-heading-color);
+  margin-bottom: 30px;
+}
+
+.family-law-article h3 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.family-law-article .wrapper {
+  display: flex;
+  margin-bottom: 30px;
+  width: 100%;
+  margin-top: 20px;
+  height: 100%;
+}
+
+.family-law-article .wrapper .image img {
+  border: 1px solid #797979;
+  padding: 1px;
+  height: 100%;
+  width: 100%;
+}
+
+.family-law-article .wrapper .content {
+  padding-left: 30px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.family-law-article .image {
+  flex: 0 0 170px;
+}
+
+.family-law-article .wrapper .content h5 {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.family-law-article .wrapper .content p, .family-law-article .wrapper .content span {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.top-rated-family .wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.top-rated-family .wrapper .image, .top-rated-family .wrapper .rates, .top-rated-family .wrapper .loc {
+  width: 22%;
+}
+
+.top-rated-family .wrapper .content {
+  padding-left: 25px;
+  width: 78%;
+}
+
+
+.top-rated-family .wrapper .content .rating, .top-rated-family .wrapper .content .address {
+  display: flex;
+  align-items: center;
+}
+
+.top-rated-family h3 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.top-rated-family .wrapper .content h5 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.top-rated-family .wrapper .content span.review {
+  display: block;
+  font-size: 13px;
+}
+
+.top-rated-family .wrapper .content .year, .contact, .area {
+  padding-left: 30px;
+}
+
+.top-rated-family .wrapper .content span.bold {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.top-rated-family .wrapper .content .contact {
+  margin-left: auto;
+  display: block;
+}
+
+.top-rated-family .wrapper .image img {
+  width: 100%;
+}
+
+.top-rated-family .wrapper .image {
+  position: relative;
+}
+
+.top-rated-family .wrapper .image span.pro {
+  position: absolute;
+  background: #8080ff;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 10px;
+  right: 0px;
+  height: 20px;
+  top: -10px;
+  border: 1px solid #797979;
+}
+.box .btn {
+  padding: 8px 23px;
+}
+
+.top-rated-family .wrapper .content .contact button.btn {
+  padding: 8px 25px;
+  height: 34px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1125px) {
+  a.tag {
+    flex: 0 0 80% !important;
+    justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .sub-heading h4 {
+    font-size: 16px;
+  }
+
+  .wrapper-second .box {
+    padding: 30px 20px;
+  }
+
+  .wrapper-second .box p {
+    font-size: 15px;
+  }
+
+  .legal-topics h5 {
+    font-weight: 700;
+    font-size: 17px;
+  }
+
+  a.tag {
+    flex: 0 0 100% !important;
+    justify-content: flex-start;
+  }
+
+  .top-rated-family .wrapper .content .rating, .top-rated-family .wrapper .content .address {
+    flex-wrap: wrap;
+  }
+
+  .top-rated-family .wrapper .image, .top-rated-family .wrapper .rates, .top-rated-family .wrapper .loc {
+    width: 100%;
+  }
+
+  .top-rated-family .wrapper .content .year, .contact, .area {
+    padding-left: 0;
+  }
+
+  .top-rated-family .image {
+    margin-bottom: 15px;
+  }
+
+  .top-rated-family .wrapper .content {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 0;
+  }
+  .top-rated-family .wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .legal-services-section .wrapper .sub-heading {
+    display: block;
+    text-align: center;
+  }
+
+  .family-law-article .wrapper {
+    display: block;
+    text-align: center;
+  }
+
+  .family-law-article .wrapper .image img {
+    width: 150px;
+  }
+
+  .family-law-article .wrapper .content {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .help-family-law .wrapper {
+    padding-bottom: 10px;
+    display: block;
+  }
+
+  .help-family-law .wrapper .image {
+    position: relative;
+  }
+
+  .help-family-law .wrapper span.court {
+    bottom: -8px;
+    vertical-align: middle;
+    top: auto;
+    left: 0px;
+    width: 45%
+  }
+
+  .help-family-law .wrapper .image img {
+    height: 150px;
+    display: block;
+  }
+}

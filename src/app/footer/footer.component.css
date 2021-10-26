@@ -1,0 +1,40 @@
+section.copyright {
+    padding: 15px 0;
+    background: #19171c;
+    color: #fff;
+    font-size: 15px;
+}
+.justify-content-flex-end
+{
+    display: flex;
+    justify-content: flex-end;
+}
+.update-button .disclaimer
+{
+    color: #000;
+    margin-top: 10px !important;
+    font-size: 14px;
+    margin: 0 auto;
+}
+.update-button a
+{
+    display: block;
+}
+button.btn.rightcorner {
+    float: right;
+    margin-top: 19px;
+    position: absolute;
+    margin-left: 774px;
+}
+@media screen  and (max-width:600px)
+{
+    .feedback-btn
+    {
+        margin-right: 0 !important;
+    }
+    .r-center
+    {
+        text-align: center;
+        justify-content: center;
+    }
+}

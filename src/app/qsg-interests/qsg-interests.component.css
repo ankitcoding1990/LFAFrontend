@@ -1,0 +1,20 @@
+.multiselect
+{
+    width:11em;
+    height:13em;
+    border:solid 1px #c0c0c0;
+    overflow:auto;
+    padding:5px;
+}
+.multiselect label
+{
+    display:block;
+}
+.multiselect-on
+{
+    color:#ffffff;
+    background-color:#000099;
+}
+button.btn.add_other_interests.success {
+    margin: 11px;
+}

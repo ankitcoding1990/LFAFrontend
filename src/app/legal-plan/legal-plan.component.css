@@ -1,0 +1,182 @@
+div#accordion .card-header a i {
+  margin-right: 15px;
+}
+section.trust-section {
+  padding: 50px 0;
+  font-size: 15px;
+}
+img.side-img {
+  width: 100%;
+  background: #f9f3ff;
+}
+a{
+  color: #4a00e0;
+  text-decoration: none !important;
+}
+p.caption {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 0;
+}
+a.trust-btn {
+  background-color: #4a00e0;
+  border-width: 1px;
+  border-color: #4a00e0;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  line-height: 1.15;
+  font-weight: 600;
+  font-size: 17px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.footer-wrap {
+  border-top: 1px solid gainsboro;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+}
+.cap-div p {
+  color: #3e3c44;
+  font-weight: 500;
+  margin-bottom: 4px;
+  padding: 0;
+}
+.q-div {
+  margin-right: 10px;
+}
+.scroll-div h3 {
+  margin-top: 10px;
+  font-size: 30px;
+}
+img.t-img {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+ul.main-ul {
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid gainsboro;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+}
+ul.main-ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+img.s-img {
+  margin-bottom: 10px;
+  width: auto;
+  height: 50px;
+}
+ul.main-ul li img {
+  margin-right: 10px;
+}
+ul.main-ul li p{
+  margin-bottom: 0;
+}
+p.caption-p {
+  color: #3e3c44;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+ul.main-ul p.caption {
+  padding: 0;
+  padding-left: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+p.price-para {
+  font-size: 16px;
+  font-weight: 600;
+}
+.main-ul-2 li{
+  margin-bottom: 10px !important;
+}
+div#accordion .card-header {
+  background: no-repeat;
+  border: none;
+  padding: 0;
+}
+div#accordion .card {
+  background: no-repeat;
+  border: none;
+  margin-bottom: 30px;
+}
+div#accordion .card-header a{
+  color: #000;
+}
+div#accordion .card-body {
+  color: #97939f;
+}
+div#accordion {
+  border-bottom: 1px solid gainsboro;
+  margin-bottom: 30px;
+}
+button.create-btn {
+  background-color: #4a00e0;
+  border-width: 1px;
+  border-color: #4a00e0;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  line-height: 1.15;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.info-d {
+  margin-top: 10px;
+}
+.info-d p span {
+  color: #97939f;
+  font-weight: 700;
+  font-size: 15px;
+}
+.info-d p {
+  color: #97939f;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.scroll-div {
+  padding: 40px;
+}
+*{
+  transition: all .5s ease;
+}
+@media screen and (max-width: 1200px) {
+  .cap-div p {
+    font-size: 14px;
+  }
+  a.caption {
+    font-size: 14px;
+  }
+  a.trust-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  .footer-wrap {
+    flex-wrap: wrap;
+  }
+  .trust-div {
+    flex: 0 0 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .scroll-div {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .scroll-div h3 {
+    font-size: 25px;
+  }
+}

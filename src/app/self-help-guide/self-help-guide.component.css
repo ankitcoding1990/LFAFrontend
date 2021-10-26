@@ -1,0 +1,209 @@
+h2.main-heading {
+    text-align: center;
+    font-size: 21px;
+    line-height: 29px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+section.self-help-guides.section h2.main-heading {
+    margin-bottom: 2px;
+}
+section.self-help-guides.section p.main-subheading {
+    margin-bottom: 30px;
+}
+p.main-subheading {
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+}
+.wrapper-card {
+    border: 1px solid rgba(121, 121, 121, 1);
+    position: relative;
+}
+.img-div {
+    position: relative;
+}
+span.popular {
+    display: block;
+    position: absolute;
+    background: rgb(141 44 226);
+    border: 1px solid rgba(121, 121, 121, 1);
+    color: white;
+    font-size: 12px;
+    padding: 0 10px;
+    top: -10px;
+    right: 20px;
+}
+img.wrap-img {
+    width: 100%;
+    height: 150px;
+    display: block;
+    object-fit: cover;
+}
+span.family {
+    border: 1px solid rgba(121, 121, 121, 1);
+    padding: 2px 30px 0;
+    display: block;
+    border-radius: 50px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 500;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    background: white;
+    bottom: -6px;
+    left: 20px;
+}
+.wrap-detail {
+    padding: 20px;
+}
+
+.wrap-detail h5 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+.wrap-detail h5 span {
+    color: #4903e0;
+}
+
+.wrap-detail p {
+    font-size: 13px;
+}
+.button-grp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-div {
+    text-align: right;
+}
+span.guides {
+    font-size: 14px;
+    font-weight: bold;
+    color: #7f7f7f;
+    display: block;
+}
+span.time {
+    font-size: 12px;
+    color: #7f7f7f;
+    display: block;
+}
+a{
+    color: #212529;
+}
+.nav.nav-pills
+{
+  overflow: hidden;
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    padding: 15px 0; */
+    margin-top: 40px;
+    background: #F2f2f2;
+    padding: 30px 20px;
+    border-radius: 50px;
+}
+.nav.nav-pills a
+{
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding: 9px 15px;
+    border-radius: 40px;
+    background: #fff;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 16px;
+    display: block;
+    box-shadow: 0 0 10px -5px rgb(0 0 0 / 50%);
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link
+{
+  /*background: linear-gradient(to right, #4a00e0, #8E2DE2);*/
+  background: linear-gradient(180deg, #4E03E0 0%, rgba(114, 27, 225, 0.84) 100%);
+  color: #fff;
+}
+
+.nav-link:focus-visible
+{
+  outline:0px;
+}
+.cir-tab .nav-link.active
+{
+  position:relative;
+}
+.cir-tab .nav-link.active:after
+{
+  position:absolute;
+  content:"";
+  background:#4a00e0;
+  height:2px;
+  width: 45px;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.update-button.text-center button.btn.long-btn{
+  display: unset;
+} 
+.summrytab h3.summry
+{
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.summrytab .table-sm td, .table-sm th
+{
+    padding: 0.4rem;
+} 
+.summrytab button.btn
+{
+  background: linear-gradient(to right, #4a00e0, #8E2DE2);
+    font-size: 14px;
+    margin-left: auto;
+    display: block;
+}
+li.nav-item.removenumber.qsglist {
+    width: 227px;
+    height: 69px;
+}
+li.nav-item.removenumber.qsglistsummary {
+    padding: 17px 2px;
+}
+button.btn.self_read {
+    background: green;
+
+}
+button#selfreview_1 {
+    margin-right: 0px !important;
+    padding: 10px;
+}
+button#selfreview_2 {
+    margin-right: 0px !important;
+    padding: 10px;
+}
+button#selfreview_3 {
+    margin-right: 0px !important;
+    padding: 10px;
+}
+@media screen and (max-width:992px){
+    .wrapper-card {
+        margin-bottom: 30px;
+    }
+    .wrap-detail h5 {
+        min-height: 60px !important;
+    }
+}
+
+@media screen and (max-width:600px){
+    h2.main-heading 
+    {
+        font-size: 15px;
+    }
+}
+
+
+
+  
+

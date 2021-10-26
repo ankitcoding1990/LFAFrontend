@@ -1,0 +1,137 @@
+.summrytab h3.summry
+{
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.summrytab .table-sm td, .table-sm th
+{
+    padding: 0.4rem;
+} 
+.summrytab button.btn
+{
+  background: linear-gradient(to right, #4a00e0, #8E2DE2);
+    font-size: 14px;
+    margin-left: auto;
+    display: block;
+    width:auto;
+}
+
+
+ul#pills-tab {
+    margin: 0px !important;
+    padding: 0px !important;
+    padding-bottom: 5px !important;
+}
+.nav.nav-pills
+{
+  overflow: hidden;
+    /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    padding: 15px 0; */
+    margin-top: 40px;
+    background: #F2f2f2;
+    padding: 30px 20px;
+    /* border-radius: 50px; */
+}
+.cir-tab .nav-link.active
+{
+  position:relative;
+}
+.cir-tab .nav-link.active:after
+{
+  position:absolute;
+  content:"";
+  background:#4a00e0;
+  height:2px;
+  width: 45px;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+li.nav-item.removenumber.qsglist {
+    width: 100%;
+    
+}
+li.nav-item.removenumber.qsglistsummary{
+  width: 100%;
+}
+a.nav-link.qsglistsummary {
+    background: none !important;
+    box-shadow: none !important;
+    }
+/* li.nav-item.removenumber.qsglistsummary {
+    padding: 17px 2px;
+} */
+@media only screen and (max-width:600px)
+{
+  .cir-main-tab .tab-content
+  {
+    padding: 15px 15px 0px !important;
+  }
+  .nav-area
+  {
+    align-items: normal;
+  }
+  .nav.nav-pills
+  {
+    padding: 30px 20px 10px;
+  }
+  .update-button.move.mb-2.move-btn {
+    margin-top: 0px;
+  }
+  div#v-pills-tabContent {
+    margin-top: 30px;
+}
+.nav {
+  justify-content: center;
+}
+.cir-tab.nav
+{
+  justify-content: left;
+}
+
+.summrytab button.btn {
+  display: inherit !important;
+}
+.update-button {
+  text-align: center !important;
+}
+button.btn.long-btn {
+  margin: 0;
+}
+.head-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+}
+@media (min-width:768px) and (max-width:992px)
+{
+  .nav.flex-column.nav-pills
+  {
+    /* flex-direction: inherit !important; */
+  }
+  .cir-main-tab .tab-content
+  {
+    padding: 15px 15px 0px !important;
+  }
+  .nav-area
+  {
+    align-items: normal;
+  }
+
+/*  .nav.nav-pills{
+    padding: 10px;
+    padding-left: 15px;
+    text-align: left;
+}*/
+
+}
+td { 
+  white-space: pre-wrap;      /* CSS3 */   
+  white-space: -moz-pre-wrap; /* Firefox */    
+  white-space: -pre-wrap;     /* Opera <7 */   
+  white-space: -o-pre-wrap;   /* Opera 7 */    
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}

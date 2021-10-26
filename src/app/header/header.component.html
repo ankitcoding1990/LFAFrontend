@@ -1,0 +1,373 @@
+<header class="header-top">
+    <div class="video-call">
+        <div class="container-fluid">
+            <div class="wrapper">
+                <!-- <img src="assets/images/video-call.png"> -->
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-div">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg">
+                <div class="image">
+                    <a [routerLink]="['/']" href=""><img src="assets/images/logo.jpg" width="200"></a>
+                </div>
+
+                <div class="nav-bar navbar-brand collapse navbar-collapse justify-content-center"
+                    id="collapsibleNavbar">
+                  
+                    <ul [hidden]="!nav_menu" class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" [routerLink]="['/dashboard']" class="nav-link">Dashboard</a>
+                         </li>
+                       <!--   <li class="nav-item">
+                            <a href="#" [routerLink]="['/complete-profile']" class="nav-link">Profile</a>
+                         </li> -->
+                          <li class="nav-item">
+                            <a href="#" (click)="movetocase()" [routerLink]="['/vault-storage']" class="nav-link">Document Vault</a>
+                         </li>
+                       <!--   <li class="nav-item">
+                            <a href="#" [routerLink]="['/']" class="nav-link">My Calendar</a>
+                         </li>  -->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Knowledge Center</a>
+                            <ul class="  dropdown-menu">
+                                <li class="dropdown-item"><a class="" href="#" (click)="movetoselfhelp()" [routerLink]="['/self-help-guide']"> Self-Help Guides</a></li>
+                                <li class="dropdown-item"><a class="" href="#" (click)="review_dashboard()" [routerLink]="['/review-legal-resources']"> State Resources </a></li>
+                               
+                            </ul>
+                        </li>
+                       <!--    <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Resource Center</a>
+                            <ul class="  dropdown-menu">
+                                <li class="dropdown-item"><a class="" href="#">State</a></li>
+                                <li class="dropdown-item"><a class="" href="#"> Review legal issued forms </a></li>
+                                 <li class="dropdown-item"><a class="" href="#"> County resources </a></li>
+                            </ul>
+                        </li> -->
+                        <li class="nav-item"><a class="nav-link" [routerLink]="['/services']" href="#"> Services </a></li>
+                    </ul>
+                </div>
+                <div class="log-in">
+                   
+                    <button  [routerLink]="['/sign-up']" [hidden]="visible" class="btn mb-hide" >
+                        Sign Up
+                    </button>
+
+                    <a [routerLink]="['/sign-in']" href="#">
+                        <button [hidden]="visible" class="btn mb-hide">
+                            Sign In
+                        </button>
+                    </a>
+
+                    <li [hidden]="!visible" id="" class="nav-item dropdown list-unstyled" style="display:inline-block; margin-left: 30px">
+                        <a  href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img class="user-icon" src="assets/images/user-icon.png" width="30"></a>
+                        <ul class="dropdown-menu profile-dropdown">
+                          <!--   <li  [hidden]="!menuitemdasboard"  class="dropdown-item"><a class="" [routerLink]="['/dashboard']" href="#"> Dashboard</a>
+                            </li> -->
+                            <li  class="dropdown-item"><a class="" [routerLink]="['/welcome-letter']" href="#"> Welcome Letter </a></li>
+                            <li class="dropdown-item"><a class="" [routerLink]="['/summary-profile']" href="#"> Quick Start Guide </a></li>
+                            <li  class="dropdown-item"><a class="" [routerLink]="['/dashboard']" href="#"> Dashboard</a>
+                            </li>
+                            <!-- <li class="dropdown-item"><a class="" [routerLink]="['/complete-profile']" href="#"> Profile </a></li> -->
+                            <li class="dropdown-item">
+                                <a href="#" [routerLink]="['/services']" class="">Services</a>
+                            </li>
+                            <li class="dropdown-item"><a class="" href="#" [routerLink]="['/faq']"> FAQs </a></li>
+                            <li class="nav-item dropdown my-acc">
+                                <a href="#" (click)="getpreviousurl()" [routerLink]="['/change-password']" class="nav-link"> &nbsp;Change Password</a>
+                               
+                            </li>
+                            <!-- <li class="nav-item dropdown my-acc">
+                                <a href="#" [routerLink]="['/profile']" class="nav-link"> &nbsp;My Account</a>
+                               
+                            </li> -->
+                            <li class="dropdown-item"><a class="" (click)="logout()"> Logout </a></li>
+
+                           
+
+
+                        </ul>
+                    </li>
+                </div>
+            </nav>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Create Account</h4>
+                            <button (click)="hide_validation()" type="button" id="closebutton" class="close " data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+
+                        <div class="modal-body">
+                          <!--   <form [formGroup]="signupsForm" (submit)="singnup()" autocomplete="off">
+
+                                <h5>Basic Details</h5>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="first-name"> First Name<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="text" formControlName="firstname" name="firstname"
+                                            placeholder="John" required="" class="step-input"
+                                            autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.firstname.touched || singup_submitted) && registerFormControl.firstname.errors?.required">
+                                            First name is required
+                                        </span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="first-name"> Last Name<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="text" formControlName="lastname" name="lastname" placeholder="Doe"
+                                            class="step-input" autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.lastname.touched || singup_submitted) && registerFormControl.lastname.errors?.required">
+                                            Last name is required
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="email"> Email<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="email" email="true" formControlName="email" name="email"
+                                            placeholder="Example@gmail.com" class="step-input"
+                                            autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.email.touched || singup_submitted) && registerFormControl.email.errors?.required || registerFormControl.email.errors?.pattern">
+                                            Valid email is required
+                                        </span>
+                                        <span [hidden]="!emailerror" class="text-danger">Email already exists</span>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="phone"> Phone<span class="text-danger"> *</span></label>
+                                        <br>
+                                        <input type="tel" (click)="phone_valiadte()" mask="(000) 000-0000"
+                                            id="signup_phone" formControlName="phone" name="phone" 
+                                            placeholder="(XXX) XXX-XXXX" class="step-input"
+                                            autocomplete="doNotAutoComplete">
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.phone.touched || singup_submitted) && registerFormControl.phone.errors?.required || registerFormControl.phone.errors?.pattern">
+                                            10 digit phone required
+                                        </span>
+                                        <span [hidden]="!phoneerror" class="text-danger">Phone already exists</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="services"> What is your Legal Matter?</label>
+                                        <br>
+                                        <select formControlName="legal_id" class="step-input signup_show_other"
+                                            id="legal_id" name="legal_id">
+                                            <option value="" selected disabled>Select Legal Matter</option>
+                                            <option *ngFor="let legal of get_other_legal_details.data"
+                                                [value]="legal.id">{{legal.name}}</option>
+                                            <option value="other">Other</option>
+
+                                        </select>
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.legal_id.touched || singup_submitted) && registerFormControl.legal_id.errors?.required">
+                                            Legal matter is required
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <label for="state"> State<span class="text-danger"> *</span></label><br>
+                                        <select formControlName="state" class="step-input" id="state" name="state">
+
+                                           <option value="" selected disabled>Select State</option>
+                                            <option *ngFor="let state of statelist?.data" [value]="state.name">
+                                                {{state.name}}</option>
+
+                                        </select>
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.state.touched || singup_submitted) && registerFormControl.state.errors?.required">
+                                            State is required
+                                        </span>
+                                
+                                    </div>
+
+                                </div>
+                                <div class="row show_other_legal" style="display:none;">
+                                    <div class="col-md-6 col-lg-6">
+                                        <label for="other"> Legal Matter</label>
+                                        <br>
+                                        <input type="text" formControlName="other_legal_id" name="other_legal_id"
+                                            placeholder="Legal Matter" class="step-input">
+
+                                    </div>
+                                </div>
+                             
+
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+
+                                        <input type="checkbox" formControlName="terms" name="terms" class="">
+                                        I agree to the <a target="_blank" (click)="go_to_policy()" href="/">Privacy
+                                            Policy</a>
+                                        and <a target="_blank" (click)="go_to_terms()" href="/">Terms of Service</a>
+                                        <br><span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(registerFormControl.terms.touched || singup_submitted) && registerFormControl.terms.errors?.required">
+                                            Accept Privacy Policy and Terms of Service
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+
+                                    <input type="hidden" name="closemodel" formControlName="closemodel" value=""
+                                        >
+                                    <div class="col-md-12 col-lg-12 mt-3">
+                                        <div class=" d-block text-center">
+                                            <button type="submit" class="btn closemodelbutton get-s">Get Started</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form> -->
+
+                        </div>
+
+                        <!-- Modal footer -->
+
+
+                    </div>
+                </div>
+            </div>
+
+             <!-- The Modal -->
+             <div class="modal" id="myFeedback">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title">Have feedback? We're listening!</h5>
+                           
+                            <button type="button" id="closebutton" class="close " data-dismiss="modal">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            
+                             <p class="modal-title text-center">Think of this as a suggestion box. Our management team reviews these personally and loves to hear how we can improve ourselves!</p>
+                            <p class="text-center"><i>HINT: You will NOT receive a response from submitting Feedback. If you need to reach us directly please use the Call Us button or email us at:<br><a href="mailto:CustomerSatisfaction@familycourtdirect.com">CustomerSatisfaction@familycourtdirect.com</a></i></p>
+                            <form [formGroup]="feedbackForm" (submit)="submitFeedback()" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <label for="feedback"> Feedback
+                                        </label>
+                                        <br>
+                                        <textarea formControlName="feedback" name="feedback"
+                                            placeholder="Enter Feedback" required="" class="step-input form-control"
+                                            autocomplete="doNotAutoComplete">
+                                        </textarea>
+                                        <span [hidden]="!displayerror" class="text-danger"
+                                            *ngIf="(feedbackFormControl.feedback.touched || feedback_submitted) && feedbackFormControl.feedback.errors?.required">
+                                            Feedback is required
+                                        </span>
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <input type="hidden" name="closemodel" formControlName="closemodel" value=""
+                                        >
+                                    <div class="col-md-12 col-lg-12 mt-3">
+                                        <div class=" d-block text-center">
+                                            <button type="submit" class="btn closemodelbutton">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                        <!-- Modal footer -->
+
+
+                    </div>
+                </div>
+            </div>
+          <div class="modal fade" id="upgrademembership" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <button type="button" id="closebutton_upgrademembership" class="close " data-dismiss="modal">&times;</button>
+                    <div class="modal-body">
+                     
+                      <h5 class="main-heading text-center">Upgrade your membership to Personal+ to unlock this feature!</h5>
+                      <div class="col-md-12">
+                    <div class="row">
+                    <div class="col-md-6">
+                    <div class="wrapper text-center">
+                <div class="image modelimg">
+                  <img class="modelimg" src="assets/images/phone.png">
+                   <div class="btn-class">
+                  <a href="tel:+1-888-318-1266"><button class="btn imready" id="form_btn"> Call Now</button></a>
+                </div>
+                </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="wrapper text-center">
+                <div class="image">
+                  <img class="modelimg" src="assets/images/schedule.png">
+                   <div class="btn-class">
+                  <button class="btn scheduleanapp" id="form_btn" (click)="showsdiv()">Schedule an Appointment</button>
+                </div>
+                </div>
+                    </div>
+                    </div>              
+                    </div>
+                </div>
+                      <br><br>
+                     <div class="wrapper text-center">
+                        <p class="upgrade_pouplink" data-dismiss="modal" aria-label="Close" (click)="hide_schedule_form()">No thank you, I'm not ready yet</p>
+                            </div>
+                    </div>
+                     <div [hidden]="!show" class="col-md-12">
+                
+                    <div class="wrapper">
+                    
+                         <form [formGroup]="queryForm" (submit)="savequery()">
+                          <input type="hidden" formControlName="user_id"  name="user_id">
+           
+                            <div class="row">
+                            <button type="button" id="sch_form" class="close" (click)="closediv()"  aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                                <div class="col-md-12">
+                                    <label for="date">
+                                        Date & Time
+                                    </label><br>
+                                    <input type="datetime-local" formControlName ="date" class="step-input" name="date" onkeydown="return false">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="phone">Mobile No.</label><br>
+                                    <input type="text" mask="(000) 000-0000"
+                                             formControlName="phone" name="phone" 
+                                            placeholder="(XXX) XXX-XXXX"  class="step-input">
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <a href="#" ><button class="btn submit">Submit</button></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                       
+                </div>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+    </div>
+</header>

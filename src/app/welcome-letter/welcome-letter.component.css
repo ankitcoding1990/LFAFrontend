@@ -1,0 +1,221 @@
+.welcome-content {
+  background: #ffffff;
+  box-shadow: 0px 0px 25px 2px rgb(8 36 59 / 30%);
+  border-radius: 10px;
+  padding: 40px;
+  margin-top: 40px;
+}
+.welcome-content.fullscreen p {
+  margin: 10px auto;
+  text-align: justify;
+  width: 70%;
+}
+
+button.button.btn.showupdateprofile {
+  height: 104px;
+  width: 100% !important;
+  font-size: 12px;
+  padding: 7px 5px;
+}
+.wc-btn {
+  width: 89% !important;
+  align-items: center;
+  margin: 18px auto;
+}
+
+h3 {
+  font-size: 34px;
+  font-weight: bold;
+  background: linear-gradient( 92deg, #4a00e0, #8e2de2);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-align: center;
+}
+
+button.btn {
+  background: linear-gradient(to right, #4a00e0, #8E2DE2);
+  font-size: 14px;
+  width: 50%;
+}
+
+button.btn strong {
+  font-size: 18px;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.welcome-content li.first-child:before {
+  content: "\f00c";
+  font-family: 'FontAwesome';
+  margin-right: 10px;
+}
+
+.welcome-content li.first-child {
+  list-style: none;
+}
+
+.welcome-content li {
+  list-style: inside;
+  list-style-type: decimal;
+}
+
+li.add-checkbox {
+  list-style: none !important;
+}
+button.button.btn.showupdateprofile.mb-3 {
+    height: 104px;
+    width: 70%;
+}
+
+p.welcome_text {
+    margin: 10px 231px;
+}
+.welcome-content.fullscreen {
+    margin: 10px 168px !important;
+}
+#sidebar .list-group-item {
+  border-radius: 0;
+  background-color: #333;
+  color: #ccc;
+  border-left: 0;
+  border-right: 0;
+  border-color: #2c2c2c;
+  white-space: nowrap;
+}
+
+/* highlight active menu */
+
+#sidebar .list-group-item:not(.collapsed) {
+  background-color: #222;
+}
+
+/* closed state */
+
+#sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+  content: " \f0d7";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 5px;
+}
+
+/* open state */
+
+#sidebar .list-group .list-group-item[aria-expanded="true"] {
+  background-color: #222;
+}
+
+#sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+  content: " \f0da";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 5px;
+}
+
+/* level 1*/
+
+#sidebar .list-group .collapse .list-group-item {
+  padding-left: 20px;
+}
+
+/* level 2*/
+
+#sidebar .list-group .collapse>.collapse .list-group-item {
+  padding-left: 30px;
+}
+
+/* level 3*/
+
+#sidebar .list-group .collapse>.collapse>.collapse .list-group-item {
+  padding-left: 40px;
+}
+
+@media (max-width:48em) {
+  /* overlay sub levels on small screens */
+  #sidebar .list-group .collapse.in, #sidebar .list-group .collapsing {
+    position: absolute;
+    z-index: 1;
+    width: 190px;
+  }
+  .welcome-content.fullscreen {
+    margin: 0px !important;
+}
+  #sidebar .list-group>.list-group-item {
+    text-align: center;
+    padding: .75rem .5rem;
+  }
+  /* hide caret icons of top level when collapsed */
+  #sidebar .list-group>.list-group-item[aria-expanded="true"]::after, #sidebar .list-group>.list-group-item[aria-expanded="false"]::after {
+    display: none;
+  }
+}
+
+/* change transition animation to width when entire sidebar is toggled */
+
+#sidebar.collapse {
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition-duration: .1s;
+  -o-transition-duration: .1s;
+  transition-duration: .1s;
+}
+
+#sidebar.collapsing {
+  opacity: 0.8;
+  width: 0;
+  -webkit-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-transition-property: width;
+  -o-transition-property: width;
+  transition-property: width;
+}
+
+#myDiv.fullscreen {
+  position: inherit;
+  padding: 15px;
+  width: 100%;
+  /* overflow-x: scroll; */
+  min-width: 1136px !important;
+  float: left !important;
+  right: 299px;
+}
+@media screen and (max-width:576px){
+  button.btn{
+    width:100%;
+  }
+  .welcome-content.fullscreen {
+    margin: 0px !important;
+}
+}
+
+@media screen and  (max-width:460px){
+  button.button.btn.showupdateprofile.mb-3 {
+    height:100%;
+  }
+
+.welcome-content.fullscreen {
+    margin: 0px !important;
+}
+  button.btn{
+    width: 85%;
+  }
+}
+.hint
+{
+  width:81% !important;
+}
+@media only screen and (max-width:600px)
+{
+  .hint
+  {
+    width:100% !important;
+  }
+}

@@ -1,0 +1,207 @@
+<div class="">
+  <!-- //newcode -->
+  <div class="nav-area" [hidden]="showsubnav" id="navarea">
+    <div class="arrow-div1" id="slideBack">
+      <i class="fa fa-chevron-left"></i>
+    </div>
+    <ul class="cir-tab nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+            <a class="nav-link active" id="v-pills-basic-tab"  [routerLink]="['/complete-profile']" data-toggle="pill" href="#tabs-1" role="tab"
+        aria-controls="v-pills-basic" aria-selected="true" >Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " id="v-pills-legal-tab" data-toggle="pill" [routerLink]="['/qsg-legal-details']"  role="tab"
+        aria-controls="v-pills-legal" aria-selected="false" >Legal Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="v-pills-family-tab" data-toggle="pill" [routerLink]="['/qsg-family-details']" role="tab"
+        aria-controls="v-pills-family" aria-selected="false" >Family Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="v-pills-income-tab" data-toggle="pill" [routerLink]="['/qsg-incomeprofession-details']" role="tab"
+       aria-controls="v-pills-income" aria-selected="false" >Profession & Income </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" id="v-pills-pets-tab" data-toggle="pill" [routerLink]="['/qsg-pets-details']" role="tab"
+        aria-controls="v-pills-pets" aria-selected="false" >Pets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="v-pills-interest-tab" data-toggle="pill" [routerLink]="['/qsg-interests-details']" role="tab"
+       aria-controls="v-pills-interest" aria-selected="false" >Interests</a>
+      </li>
+       <li class="nav-item">
+            <a class="nav-link" id="v-pills-other-tab" data-toggle="pill" [routerLink]="['/qsg-otherinterests-details']" role="tab"
+         aria-controls="v-pills-other" aria-selected="false">Other Legal Interests</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" id="v-pills-summary-tab" data-toggle="pill" [routerLink]="['/qsg-profilesummary-details']" role="tab"
+          aria-controls="v-pills-other" aria-selected="false" >Profile Summary</a>
+      </li>
+      <!--li class="nav-item">
+      <a class="nav-link" id="v-pills-docstorage-tab" data-toggle="pill" href="#tabs-9" role="tab"
+            aria-controls="v-pills-docstorage" aria-selected="false">Document Storage</a>
+      </li-->
+    </ul>
+    <div class="arrow-div" id="slide1">
+      <i class="fa fa-chevron-right"></i>
+    </div>
+  </div>
+  <!-- end code -->
+    <h4 class="main-heading">Profile</h4>
+    <p class="main-sub-para">Please complete your personal information below.<br>
+<i>HINT: Your email and mobile number are linked to your membership account and are used for your login or forgot password. If you choose to update either of these, you are updating the contact information linked to your account.</i>
+    </p>
+    <h4 class="main-heading-2">Fill out your profile</h4>
+    <form [formGroup]="BasicProfileForm" (ngSubmit)="updateprofile()">
+    	<fieldset [disabled]="fieldsetDisabled">
+      <input type="hidden" formControlName="user_id" name="user_id">
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <label for="first-name"> First Name</label><br>
+          <input type="text" formControlName="name" name="name" class="step-input" placeholder="John"
+            required>
+          <span class="text-danger"
+            *ngIf="(registerFormControl.name.touched || basicfprofile_submitted) && registerFormControl.name.errors?.required">
+            First Name is required
+          </span>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="last-name"> Last Name</label><br>
+          <input type="text" formControlName="lastname" name="lastname" class="step-input"
+            placeholder="Dee" required>
+          <span class="text-danger"
+            *ngIf="(registerFormControl.lastname.touched || basicfprofile_submitted) && registerFormControl.lastname.errors?.required">
+            Last Name is required
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <label for="email"> Email</label><br>
+          <input type="email" formControlName="email" name="email" class="step-input oldemail" email="true" (click)="updateemailid()"
+            placeholder="example@gmail.com" required readonly="">
+          <span class="text-danger"
+            *ngIf="(registerFormControl.email.touched || basicfprofile_submitted) && registerFormControl.email.errors?.required">
+            Email is required
+          </span>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="phone"> Mobile</label><br>
+          <input type="tel" formControlName="phone" mask="(000) 000-0000" name="phone" class="step-input phonenumber"  (click)="updatephone()"
+            placeholder="XXX-XXX-XXXX" required readonly="">
+
+          <span class="text-danger"
+            *ngIf="(registerFormControl.phone.touched || basicfprofile_submitted) && registerFormControl.phone.errors?.required || registerFormControl.phone.errors?.pattern">
+            Mobile is required
+          </span>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <label for="phone"> Home Number</label><br>
+          <input type="tel" formControlName="home_phone" home_phone="home_phone" mask="(000) 000-0000"
+            class="step-input" placeholder="XXX-XXX-XXXX">
+          <span class="text-danger"
+            *ngIf="(registerFormControl.home_phone.touched || basicfprofile_submitted) && registerFormControl.home_phone.errors?.pattern">
+            Valid Home Number is required
+          </span>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <label for="state"> State</label><br>
+          <select formControlName="state" class="step-input" id="state" name="state">
+              <option value="" selected disabled>Select State</option>
+              <option *ngFor="let state of statelist.data" [value]="state.name">
+                  {{state.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <label for="address"> Address</label><br>
+          <input type="text" formControlName="address" name="address" class="step-input"
+            placeholder="Address">
+
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <label for="zip-code"> Zip Code</label><br>
+          <input type="text" formControlName="zip_code" mask="00000" name="zip_code" class="step-input"
+            placeholder="XXXXX">
+          <span class="text-danger"
+            *ngIf="(registerFormControl.zip_code.touched || basicfprofile_submitted) && (registerFormControl.zip_code.errors?.pattern)">
+            Valid Zip code is required
+          </span>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <label for="zip-code"> Date of Birth</label><br>
+          <input type="text" class="step-input family_age_dob dob_slashes" formControlName="dob"
+            placeholder="mm/dd/yyyy" name="dob" />
+          <span class="text-danger dob_error_msg"
+            *ngIf="(registerFormControl.dob.touched || basicfprofile_submitted) && (registerFormControl.dob.errors && registerFormControl.dob.errors.dobProfileError)">
+            Valid date of birth required
+          </span>
+
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label>Gender</label><br>
+            <select class="step-input" formControlName="gender" (change)="get_gender_value($event)">
+              <option value="">Select Gender</option>
+              <option *ngFor="let gender of genderlist" [value]="gender.name">{{gender.name}}</option>
+            </select>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="row" [hidden]="!gender_pronoun_field">
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label>Define Pronoun?</label>
+            <input type="text" class="step-input" formControlName="gender_pronoun"
+              placeholder="Pronoun" />
+
+          </div>
+        </div>
+      </div>
+  </fieldset>
+       <div class="update-button">
+          <button [hidden]="!save_btn_profile" type="submit" class="btn pull-left mr-3 profilesavedit">Save</button>
+         <button [hidden]="save_btn_profile" (click)="toggle_save_edit($event)" value="profile_edit" type="button" class="btn pull-left mr-3 profilesavedit">Edit</button>
+            <button type="button" (click)="NextTab()" id="next" class="btn prevlegalform btnactive pull-right">Next</button>
+          </div>
+    </form>
+  </div>
+      <div class="modal" id="my_change_username" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Please confirm</h4>
+              <button type="button" id="closebutton_notes" class="close close_username_model" (click)="closepoupmodel()"
+                data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+
+            <div class="modal-body">
+                <div class="form-group">
+                
+                  <label>This action will also change the <span class="update_text">email</span> associated to your account.</label>
+                  <input type="text" name="new_username" id="new_emailid"  class="form-control" required>
+                  <input type="tel" mask="(000) 000-0000"  name="new_username" id="new_phone"  class="form-control" required style="display: none;">
+                  <span class="text-danger errormsgphone" style="display: none;"> Valid phone required</span>
+                </div>
+                <button type="button" value="email" class="btn btn-primary update_username" (click)="update_username($event)">Continue</button>&nbsp;
+                <button type="button" class="btn btn-primary close_username_model" (click)="closepoupmodel()">Cancel</button>
+            
+            </div>
+          </div>
+        </div>
+    </div>

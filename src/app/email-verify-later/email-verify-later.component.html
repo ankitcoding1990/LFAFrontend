@@ -1,0 +1,46 @@
+<section class="form-section section">
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="logo-wrapper">
+                        <img src="assets/images/email-verify.png">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+				<form [formGroup]="loginForm" (submit)="emailotp()" >
+                    <div class="email-verify"  [hidden]="hideForm">
+                        <h6>You're One Step Away</h6>
+                        <h3>Verify your email address</h3>
+                        <p>
+                            Please enter the 6 digit code sent to 
+                        </p>
+						<input [hidden]='HiddenEmail' value="{{user}}" name="email"  formControlName="email" >
+                        <input type="" inputmode="numeric" mask="000000" formControlName="otp" autocomplete="one-time-code" pattern="\d{4}" name="otp"  class="form-control" placeholder="- - - - - -" required>
+                       
+                        <button class="btn long-btn w-100">VERIFY</button>
+						<p [hidden]="!show_counter">{{counter}} {{ countersec}}</p>
+						<span class="pull-left" ></span><p class="" style="color:blue;cursor:pointer;" (click)="resnd_email_otp()"> Resend verification code</p>
+						 	<a href="#" [routerLink]="['/email']"><span class="pull-left" ></span><p class="" style="color:blue;cursor:pointer;"> Change code delivery method?</p></a>
+						   
+							  <!--  <div class="help">
+                            <div class="icon">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="text">
+                                <p>Have a question?</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="email-verify" [hidden]="!hideForm">
+                        <h5 class="alert alert-success" style="margin: 135px 0px;">Your email address already verified</h5>					   
+                    </div>
+					</form>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</section>

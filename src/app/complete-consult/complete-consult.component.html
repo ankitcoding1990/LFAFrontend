@@ -1,0 +1,133 @@
+
+<section class="section complete-consult">
+ <div class="row mx-0" style="padding: 0 20px;">
+	<div class="col-md-8 align-self-center">
+	</div>
+	<div class="col-md-4 align-self-right">
+		<ol class="breadcrumb top_nav_breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">Quick Start Guide</li>
+			<li class="breadcrumb-item">Complete Call</li>
+			
+		</ol>
+
+	</div>
+	</div>	
+	  <div class="container-fluid c-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#sidebar" data-toggle="collapse"><button type="button" class="mb-3 close togglemenu"  aria-label="Close">
+                  <!-- <span aria-hidden="true"><i class="fa fa-bars" aria-hidden="true"></i></span> -->
+                </button></a>
+            </div> 
+       </div>
+        <div class="row">
+           <div class="col-lg-3 col-md-3 nav-horizontal-mobile mb-3">
+              <app-quickstartquide></app-quickstartquide>
+              </div>
+	       <div class="col-lg-9 col-md-9" id="myDiv">
+	   	
+			   <div class="row">
+                 <div class="container">
+                  <div class="complete-wrapper">
+                    <h4 class="main-heading">Complete Call with Success Team</h4>
+                    <div class="row py-4">
+                        <div class="col-md-12">
+                    <div class="row justify-content-center">
+					<!-- <div class="col-md-2">
+					</div> -->
+					<div class="col-md-4">
+					<div class="wrapper">
+                <div class="image">
+                  <img src="assets/images/phone.png">
+				   <div class="btn-class">
+                   <a href="tel:+1-888-318-1266"><button class="btn imready" id="form_btn">I'm Ready to Call</button></a>
+                </div>
+                </div>
+					</div>
+					</div>
+					<div class="col-md-4">
+					<div class="wrapper">
+                <div class="image">
+                  <img src="assets/images/schedule.png">
+				   <div class="btn-class">
+                    <button data-toggle="modal" data-target=".bd-example-modal-lg"  class="btn scheduleanapp" id="form_btn">Schedule an Appointment</button>
+                </div>
+                </div>
+					</div>
+					</div>
+					<!-- <div class="col-md-2">
+					</div> -->
+				
+						<br>
+						<br>
+						<br>
+                    </div>
+                </div>
+                <div [hidden]="!showcheckbox" class="col-md-12">
+				 <div class="wrapper">
+					
+						 <form [formGroup]="queryForm" (submit)="savequery()">
+						  <input type="hidden" formControlName="user_id"  name="user_id">
+           
+                            <div class="row">
+							<button type="button" class="close" (click)="closediv()"  aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+                                <div class="col-md-12">
+                                    
+                                    <input type="checkbox" formControlName ="not_ready" class="step-input" name="not_ready" value="1" checked><label for="not_ready">
+                                        i'm not quite ready
+                                    </label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="phone">Mobile No.</label><br>
+                                    <input type="tel" formControlName ="phone" name="phone" class="step-input" placeholder="555XXX000">
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="#" ><button class="btn submit">Submit</button></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+				</div>
+                <div [hidden]="!show" class="col-md-12">
+                    <div class="wrapper">
+                        <form [formGroup]="queryForm" (submit)="savequery()">
+                          <input type="hidden" formControlName="user_id"  name="user_id">
+                            <div class="row">
+                                <button type="button" class="close" (click)="closediv()"  aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="col-md-12">
+                                    <label for="date">
+                                        Date & Time
+                                    </label><br>
+                                    <input type="datetime-local" formControlName ="date" class="step-input" name="date" onkeydown="return false">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="phone">Mobile No.</label><br>
+                                    <input type="tel" formControlName ="phone" name="phone" class="step-input" placeholder="555XXX000">
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="#" ><button class="btn submit">Submit</button></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+            <!-- <div class="col-md-4"></div> -->
+            <div class="col-md-5">
+              <a href="#" [routerLink]="['/update-case-detail']" class="text-center"><p>No thank you, I'm not ready yet</p></a>
+            </div>
+                        <!-- <div class="col-md-3"></div> -->
+            </div>
+        </div>      
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>

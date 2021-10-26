@@ -1,0 +1,165 @@
+ <section class="self-help-guides section">
+ <div class="row mx-0" style="padding: 0 20px;">
+	<div class="col-md-8 align-self-center">
+		
+	</div>
+	<div class="col-md-4 align-self-right">
+		<ol class="breadcrumb top_nav_breadcrumb">
+			<li class="breadcrumb-item">Home</li>
+			<li class="breadcrumb-item">{{ this?.navitemvalue}}</li>
+			<li class="breadcrumb-item">Self-Help Guides</li>
+			
+		</ol>
+	</div>
+	</div>
+        <h2 class="main-heading">Explore our Self-Help Guides for <span>Family Law</span></h2>
+        
+        <div class="container-fluid c-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#sidebar" data-toggle="collapse"><button type="button" class="close togglemenu"  aria-label="Close">
+              <!--   <span aria-hidden="true"><i class="fa fa-bars" aria-hidden="true"></i></span> -->
+              </button></a>
+            </div>
+            
+              </div>
+          <div class="row">
+			
+          <div [hidden]= "!self_sidebar" class="mb-3 col-md-3 col-lg-3 nav-horizontal-mobile">
+           <app-quickstartquide></app-quickstartquide>
+          </div>
+	       <div [hidden]= "self_sidebar" class="mb-3 col-md-3 col-lg-3 nav-horizontal-mobile">
+          
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          
+            <div _ngcontent-gpv-c79="" class="nav nav-bar">
+              <div class="side-logo">
+                <h4 class="main-heading">Knowledge Center</h4>
+              </div>
+               <li _ngcontent-gpv-c79=""  class="nav-item removenumber qsglist">
+              <a _ngcontent-gpv-c79="" href="#" class="nav-link active" routerLinkActive="active">
+                  Self-Help Guides
+                  </a>
+                </li>
+                  <li _ngcontent-gpv-c79=""  class="nav-item removenumber qsglist">
+                     <a _ngcontent-gpv-c79="" href="#" class="nav-link" [routerLink]="['/review-legal-resources']">
+                  State Resources
+                  </a>
+                </li>
+        
+            </div>
+
+            </div>
+         
+          </div>
+	      <div class="col-lg-6 col-md-6 " id="myDiv">
+		    	<br><br>
+			   <div class="row">
+                <div *ngFor="let p of guides.result; let i=index;"  class="col-md-4 col-sm-6 col-12">
+                   <a href="#" class="" (click)="chnage_button_active(p.id)" [routerLink]="['/guide/',p.url]">
+				  <div class="wrapper-card">
+                        <div class="img-div">
+                            <span class="popular">Popular</span>
+                            <img class="wrap-img" src="{{p.image}}">
+                            <span class="family">Family Law</span>
+                        </div>
+                        <div class="wrap-detail">
+                            <h5>Guide: <span>{{p?.name}}</span></h5>
+                            <p style="text-align:justify;">{{p?.description.slice(0, 130)}}... 
+                            </p>
+                            <div class="button-grp">
+                                <a [hidden]="!self_review_rwad" href="#" target="_blank"><button id="selfreview_{{p.id}}"  class="btn" [ngClass]="{'self_read':p.status === 'completed'}"  (click)="chnage_button_active(p.id)"><input type="checkbox"  [checked]="p.status"> {{p.button_value}}</button></a>
+                               
+                               <!--  <a [hidden]="self_review_rwad" href="#" target="_blank" ><button id="selfread_{{p.id}}" class="btn self_read"  (click)="chnage_button_active(p.id)"><input type="checkbox" disabled="" checked=""> Review</button></a> -->
+                                <div class="text-div">
+                                    <span class="guides">1 Guide</span>
+                                    <span class="time">{{p?.time_to_read_guide}} mins</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                  </a>
+                </div>
+                </div>
+                </div>
+                  <div class="col-lg-3 col-md-3" [hidden]="!notes_cal_section">
+            <div class="second-sidebar">
+              <div class="heading-close">
+                <i class="fa fa-close"></i>
+              </div>
+              <ejs-calendar id=calendar > </ejs-calendar >
+              <!-- <div class="calendar calendar-first" id="calendar_first">
+                <div class="calendar_header">
+                    <button class="switch-month switch-left"> <i class="fa fa-chevron-left"></i></button>
+                    <h2></h2>
+                    <button class="switch-month switch-right"> <i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar_weekdays"></div>
+                <div class="calendar_content"></div>
+              </div> -->
+              <hr style="border: 1px solid #D0CFCF; width:40%;">
+              <div class="note-heading">
+                <!-- <h4><i class="fa fa-pencil-square-o"></i>Notes</h4> -->
+              </div>
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <!-- <div class="carousel-item active">
+                    <div class="carousel-caption d-md-block">
+                      <div class="notes">
+                        <div class="new-content">
+                          <div class="text-right mb-20">
+                            <a href="javascript:void()">Done</a>
+                          </div>
+                          <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq. Ut enim ad minim veniam quis.</p>
+                            <div class="number">9876456321</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                 <!--  <div class="carousel-item">
+                    <div class="carousel-caption d-md-block">
+                      <div class="notes">
+                        <div class="new-content">
+                          <div class="text-right mb-20">
+                            <a href="javascript:void()">Done</a>
+                          </div>
+                          <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq. Ut enim ad minim veniam quis. </p>
+                            <div class="number">9876456321</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                <!--   <div class="carousel-item">
+                    <div class="carousel-caption d-md-block">
+                      <div class="notes">
+                        <div class="new-content">
+                          <div class="text-right mb-20">
+                            <a href="javascript:void()">Done</a>
+                          </div>
+                          <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq. Ut enim ad minim veniam quis.</p>
+                            <div class="number">9876456321</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+            </div>
+            
+        </div>
+    </section>

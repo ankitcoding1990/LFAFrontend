@@ -1,0 +1,361 @@
+h1.main-h1 {
+  font-size: 34px;
+  font-weight: 600;
+}
+.profile-div-2 p {
+  font-size: 13px;
+}
+.progress-div-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.section-header h2.main-heading {
+  text-align: left;
+  font-size: 17px;
+  margin-bottom: 0 !important;
+}
+.share-div p {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.social-icon a {
+  border: 1px solid #AAAAAA;
+  padding: 9px;
+  line-height: normal;
+  border-radius: 50%;
+  color: #aaa !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 7px;
+  text-decoration: none;
+}
+.social-icon {
+  display: flex;
+}
+.share-div {
+  display: flex;
+  align-items: baseline;
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #aeaeae;
+  padding: 0 0 5px;
+  margin-bottom: 20px;
+}
+.progress-div-wrap .progress {
+  width: 100%;
+  border: 1px solid rgba(121, 121, 121, 1) !important;
+  height: 10px;
+}
+.level-div{
+  width: 70%;
+}
+.progress-div-wrap .progress-bar {
+  background: rgba(136, 219, 0, 1);
+  border-radius: 50px;
+}
+.level-div-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h2.content-h {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+}
+.level-item p {
+  font-size: 12px;
+  margin-bottom: 3px;
+  font-style: italic;
+}
+.progress-div-wrap h2.content-h {
+  margin-bottom: 0;
+}
+img.content-h-img {
+  width: auto;
+  height: 40px;
+  margin-right: 5px;
+}
+.reminder-div h2 {
+  font-size: 13px;
+  font-weight: 600;
+}
+.remainder-item img {
+  width: auto;
+  height: 40px;
+  margin-right: 15px;
+}
+.remainder-item {
+  display: flex;
+  align-items: center;
+}
+.remainder-detail h2 span {
+  font-weight: 500;
+}
+.remainder-detail p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+a.read-more-a {
+  font-size: 13px;
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+p.header-subheading {
+  margin-top: -10px;
+  font-size: 15px;
+}
+.img-grid-item {
+  background-image: url(/assets/images/g.jfif);
+  background-size: cover;
+  position: relative;
+  border: 1px solid rgba(121, 121, 121, 1) !important;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  height: 170px;
+  flex: 0 0 24%;
+}
+.img-grid-item:nth-child(2){
+  background-image: url("/assets/images/Wedding-1.jpg");
+}
+.img-grid-item:nth-child(3){
+  background-image: url("/assets/images/download.jfif");
+}
+.img-grid-item:nth-child(4){
+  background-image: url("/assets/images/mo.jpg");
+}
+.img-grid-item:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000054;
+  z-index: 0;
+  border-radius: 5px;
+  content: "";
+}
+.img-grid-item p {
+  position: relative;
+  z-index: 9;
+  color: white;
+}
+.img-grid-item p {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+.remainder-detail {
+  position: relative;
+  flex: 1;
+}
+.img-grid-div {
+  display: flex;
+  justify-content: space-between;
+}
+.suggestion-card h3 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.suggestion-card p {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.suggestion-card a {
+  font-size: 13px;
+}
+.suggestion-card {
+  margin-bottom: 20px;
+}
+.sidebar {
+  padding-left: 15px;
+}
+.input-warp-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -10px;
+  margin-bottom: 45px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+a.add-member {
+  font-size: 13px;
+}
+p.fam-p {
+  font-size: 13px;
+  margin-top: -7px;
+}
+.input-warp-side input[type="text"] {
+  flex: 1;
+  margin-right: 10px;
+  border: 1px solid rgba(121, 121, 121, 1);
+  font-size: 13px;
+  color: #aaa;
+  padding: 8px 10px;
+}
+.fam-item img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(121, 121, 121, 1);
+  padding: 3px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.fam-div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+.stat h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.calender-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.cal-date p {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 12px;
+}
+.calander-div {
+  margin-bottom: 30px;
+}
+.cal-date {
+  border: 1px solid rgba(121, 121, 121, 1);
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.calender-item > p {
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-bottom: 0;
+  flex: 1;
+}
+.stat p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 0;
+}
+.fam-item {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+}
+.legal-detail h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+p.time {
+  color: #7f7f7f;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+p.des {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 0;
+}
+.vault-item img {
+  width: 45px;
+  height: 45px;
+}
+.legal-detail {
+  padding-left: 13px;
+}
+.vault-btn-div button {
+  padding: 8px 25px;
+}
+.vault-btn-div {
+  margin-top: 20px;
+}
+.vault-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.stat {
+  margin-left: 10px;
+}
+button.input-btn-side.btn {
+  padding: 8px 30px;
+}
+button.btn {
+  margin-right: 10px;
+}
+@media screen and (max-width: 992px) {
+  button.input-btn-side.btn {
+    margin-top: 10px;
+  }
+  .fam-item {
+    flex: 0 0 100%;
+    margin-bottom: 10px;
+  }
+  .level-div {
+    width: 100%;
+  }
+  .img-grid-item {
+    flex: 0 0 48%;
+    margin-bottom: 15px;
+  }
+  .img-grid-div {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 768px) {
+  .fam-item {
+    flex: 0 0 50%;
+  }
+  .level-div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  a.read-more-a {
+    position: unset;
+  }
+  .suggestion-card {
+    margin-bottom: 25px;
+  }
+
+}
+@media screen and (max-width: 400px){
+  .img-grid-item {
+    flex: 0 0 100%;
+    margin-bottom: 15px;
+  }
+}
+@media screen and (max-width: 350px){
+  .fam-item {
+    flex: 0 0 100%;
+  }
+}

@@ -1,0 +1,45 @@
+
+<section class="form-section section">
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="logo-wrapper">
+                        <img src="assets/images/mobile.png">
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+				<form [formGroup]="loginForm1" (submit)="mobileotp()">
+                    <div class="phone-verify">
+                        <h6>You're One Step Away</h6>
+                        <h3>Verify your mobile number</h3>
+                        <p>
+                            Please enter the 6 digit code sent to <br> ({{ userphone.slice(0,3) }}) {{ userphone.slice(3,6)}}-{{ userphone.slice(6,10)}}
+                        </p>
+						  <input type="hidden" formControlName="user_id" value="{{ loggeduser_id }}" name="user_id">
+						<input type="hidden" name="phone" formControlName = "phone" value="{{ userphone }}">
+                        <input type="" inputmode="numeric" mask="000000" formControlName="otp" autocomplete="one-time-code" maxlength="6"  name="otp" class="form-control" placeholder="- - - - - -" required>
+                        <button type="submit" class="btn long-btn w-100">VERIFY</button>
+                       <p> {{counter}} {{ countersec}}</p>
+						<span class="pull-left" ></span><p class="" style="color:blue;cursor:pointer;" (click)="resnd_sms_otp()"> Resend verification code</p>
+						<a href="#" [routerLink]="['/email']"><span class="pull-left" ></span><p class="" style="color:blue;cursor:pointer;"> Change code delivery method?</p></a>
+						
+                       <!--  <div class="help">
+                            <div class="icon">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="text">
+                                <p>Have a question?</p>
+                               
+                            </div>
+                        </div> -->
+                    </div>
+					</form>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</section>

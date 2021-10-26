@@ -1,0 +1,292 @@
+<section class="section step-section">
+  <div class="container-fluid c-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12" id="">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 nav-horizontal-mobile mb-3">
+             <app-quickstartquide></app-quickstartquide>
+           <!--  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          
+            <div _ngcontent-gpv-c79="" class="nav nav-bar">
+              <div class="side-logo">
+                <h4 class="main-heading">Case Details</h4>
+              </div>
+               <ul class="cir-tab nav nav-pills mb-3"  role="tablist">
+                  <li class="nav-item">
+                        <a class="nav-link active" id="v-pills-basic-tab" data-toggle="pill" href="#tabs-1" role="tab"
+                    aria-controls="v-pills-basic" aria-selected="true">Download Blank Form</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="v-pills-legal-tab" data-toggle="pill" href="#tabs-2" role="tab"
+                    aria-controls="v-pills-legal" aria-selected="false">Upload Completed Form</a>
+                  </li>
+                 
+                </ul>
+            </div>
+
+            </div> -->
+         
+          </div>
+          <div class="col-lg-6 col-md-6 ">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active cir-main-tab" id="v-pills-basics" role="tabpanel"
+                aria-labelledby="v-pills-basics-tab">
+                <div class="tabs" >
+                    <div class="nav-area" id="navarea">
+                      
+                      <ul class="cir-tab nav nav-pills mb-3"  role="tablist">
+                        <li class="nav-item">
+                              <a class="nav-link active" id="v-pills-basic-tab" data-toggle="pill" href="#tabs-1" role="tab"
+                          aria-controls="v-pills-basic" aria-selected="true">Download Blank Form</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="v-pills-legal-tab" data-toggle="pill" href="#tabs-2" role="tab"
+                          aria-controls="v-pills-legal" aria-selected="false">Upload Completed Form</a>
+                        </li>
+                       
+                      </ul>
+                     
+                    </div>
+                    <div class="tab-content" id="pills-tabContent">
+                     <div class="tab-pane fade show active" id="tabs-1" role="tabpanel"
+                aria-labelledby="v-pills-basic-tab">
+                <div class="">
+                  <h4 class="main-heading">Download Blank Form</h4>
+                  <p class="main-sub-para">Select your legal matter, legal issue and language below to complete your case details.
+                  </p>
+                   <form [formGroup]="CirPdfForm" (ngSubmit)="get_cir_pdf()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Select Legal Matter</label>
+                  <select formControlName="main_legal_vertical" class="step-input" id="legal"
+                  (ngModelChange)="onChange_other_interests($event)"
+                  name="legal-details">
+                    <option value="" disabled selected>Select Legal Matter</option>
+                  <option *ngFor="let legal of get_other_legal_details?.data"
+                    [value]="legal.id">{{legal?.name}}</option>
+                </select>
+                <span class="text-danger dob_error_msg"
+          *ngIf="(cirpdf_FormControl.main_legal_vertical.touched || cirpdf_submitted) && (cirpdf_FormControl.main_legal_vertical.errors)">
+          Legal matter is required
+        </span>
+                </div>
+              </div>
+            </div>
+            <div class="row" [hidden]="!legal_issue_show">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Select Legal Issue</label>
+                  <select formControlName="sub_legal_vertical" class="step-input" id="legal"
+                  name="legal-details">
+                    <option value="" disabled selected>Select Legal Issue</option>
+                    <option *ngFor="let legal of get_sub_interests" [value]="legal.id">
+                      {{legal?.name}}</option>
+                  </select>
+                   <span class="text-danger dob_error_msg"
+          *ngIf="(cirpdf_FormControl.sub_legal_vertical.touched || cirpdf_submitted) && (cirpdf_FormControl.sub_legal_vertical.errors)">
+          Legal matter is required
+        </span>
+                </div>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Select Language</label>
+                  <select formControlName="type" class="step-input" id="legal"
+                  name="legal-details">
+                    <option value="" disabled selected>Select Language</option>
+                    <option value="eng">English</option>
+                    <option value="spn">Español</option>
+                  </select>
+                     <span class="text-danger dob_error_msg"
+                      *ngIf="(cirpdf_FormControl.type.touched || cirpdf_submitted) && (cirpdf_FormControl.type.errors)">
+                      Language is required
+                    </span>
+                </div>
+              </div>
+            </div>
+              <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <button class="btn downloadbtn" type="submit">Download</button>
+              </div>
+            </div>
+           </div>
+              <!--  <label for="exampleFormControlSelect1">Select Language</label>
+            <div class="row" >
+              <input type="hidden" name="type" class="step-input" formControlName="type">
+
+              <div class="col-md-3 text-center">
+
+                <button type="button" [ngClass]="{'blue' : toggle, 'lang_slect': !toggle}" class="btn-lg btn-ES" value="eng" (click)="selectlanguages($event)">English</button>
+              </div>
+              <div type="button" class="col-md-3 text-center">
+                <button [ngClass]="{'blue' : toggle1, 'lang_slect_spn': !toggle1}" class="btn-lg  btn-ES" value="spn" (click)="selectlanguages($event)">Español</button>
+              </div>
+
+             
+              <div class="col-md-7">
+                 <span class="text-danger dob_error_msg"
+          *ngIf="(cirpdf_FormControl.type.touched || cirpdf_submitted) && (cirpdf_FormControl.type.errors)">
+          Language is required
+        </span>
+              </div>  
+            </div> -->
+           <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <button class="btn downloadbtn" type="submit" style="display:none;">Download</button>
+              </div>
+            </div>
+           </div>
+              
+              </form>
+               <span *ngIf="get_user_cirhistory && get_user_cirhistory.data?.length > 0">
+                         <div  class="row">
+          <div class="col-md-6">
+            <h4 class="summry">CIR Download History</h4>
+          </div>
+          <div class="row">
+        <div class="col-md-12" >
+          <ng-container >
+            
+            <table id="dtBasicExample" class="table table-responsive  text-center">
+              <tbody>
+                <tr>
+                  <th class="th-sm"> Legal matter</th>
+                  <th class="th-sm"> Legal issue</th>
+                  <th class="th-sm"> Language</th>
+                  <th class="th-sm"> Document name</th>
+                  <th class="th-sm"> Date/Time</th>
+                </tr>
+                
+                <tr  *ngFor="let legal of get_user_cirhistory?.data;">
+                 <td> {{legal?.legal_matter}}</td>
+                 <td> {{legal?.legal_issue}}</td>
+                 <td>{{ legal.language}}</td>
+                 <td class="warp">{{ legal.document_name}}</td>
+                <td>{{ legal.created_at | date:'Y-MM-d h:mm a'}}</td>
+
+                </tr>
+
+              </tbody>                     
+            </table>
+       
+          </ng-container>  
+        </div>
+      </div>
+      </div> 
+         </span>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tabs-2" role="tabpanel" aria-labelledby="v-pills-legal-tab">
+                <div class="">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4 class="main-heading"> UPLOAD DOCUMENT</h4>
+                      <p class="main-sub-para">Select choose files below and upload your completed case details form.
+                      </p>
+
+                       <div class=" summrytab">
+                            <app-upload-document></app-upload-document>
+                       
+                            </div>
+                            <a class="adoptioncir" href="" download="" style="display:none;">adoption</a>
+                                <a class="adultcir" href="" download="" style="display:none;">adoption</a>
+                                <a class="childcir" href="" download="" style="display:none;">adoption</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                    </div>
+                </div>
+              </div>
+              
+            <div class="buttons mt-3 text-center" [hidden]="!footer_button">
+              <a href="#" [routerLink]="['/complete-consult']" class=""><button class="btn mb-3"> Previous Step </button> </a>
+            <a href="#" [routerLink]="['/summary-profile']" class=""><button class="btn mb-3"> Next Step to Success </button></a>
+          </div>
+            </div>
+          </div>
+                    <div class="col-lg-3 col-md-3" [hidden]="!notes_cal_section">
+            <div class="second-sidebar">
+              <div class="heading-close">
+                <i class="fa fa-close"></i>
+              </div>
+              <ejs-calendar id=calendar > </ejs-calendar >
+              <!-- <div class="calendar calendar-first" id="calendar_first">
+                <div class="calendar_header">
+                    <button class="switch-month switch-left"> <i class="fa fa-chevron-left"></i></button>
+                    <h2></h2>
+                    <button class="switch-month switch-right"> <i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar_weekdays"></div>
+                <div class="calendar_content"></div>
+              </div> -->
+              <hr style="border: 1px solid #D0CFCF; width:40%;">
+              <div class="note-heading">
+                <h4><i class="fa fa-pencil-square-o"></i>Notes</h4>
+              </div>
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="carousel-caption d-md-block">
+                      <div class="notes">
+                        <div class="new-content">
+                          <div class="text-right mb-20">
+                            <a href="javascript:void()">Done</a>
+                          </div>
+                          <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq. Ut enim ad minim veniam quis.</p>
+                            <div class="number">9876456321</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="carousel-caption d-md-block">
+                      <div class="notes">
+                        <div class="new-content">
+                          <div class="text-right mb-20">
+                            <a href="javascript:void()">Done</a>
+                          </div>
+                          <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq. Ut enim ad minim veniam quis. </p>
+                            <div class="number">9876456321</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="carousel-caption d-md-block">
+                      <div class="notes">
+                        <div class="new-content">
+                          <div class="text-right mb-20">
+                            <a href="javascript:void()">Done</a>
+                          </div>
+                          <div class="text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq. Ut enim ad minim veniam quis.</p>
+                            <div class="number">9876456321</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

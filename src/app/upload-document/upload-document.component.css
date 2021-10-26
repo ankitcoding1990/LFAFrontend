@@ -1,0 +1,34 @@
+.error-msg{
+    color:red;
+    font-size: 14px;
+}
+.success-msg{
+    color:green;
+    font-size: 14px;
+}
+.img-div {
+    position: relative;
+    margin-bottom: 20px;
+}
+a.close-img {
+    position: absolute;
+    right: -3px;
+    font-size: 20px;
+}
+.upload-d
+{
+    padding:3px;
+}
+span.addeditbtn {
+    cursor: pointer;
+    color: blue;
+}
+
+.wrap { 
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    overflow-wrap: anywhere;
+    hyphens: auto;
+ }

@@ -1,0 +1,64 @@
+<section class="section summary-profile-section">
+	<div class="row mx-0" style="padding: 0 20px;">
+		<div class="col-md-8 align-self-center">
+		</div>
+		<div class="col-md-4 align-self-right">
+			<ol class="breadcrumb top_nav_breadcrumb">
+				<li class="breadcrumb-item">Home</li>
+
+				<li class="breadcrumb-item">Quick Start Guide
+						Summary</li>
+
+			</ol>
+		</div>
+	</div>
+	<div class="container-fluid c-fluid">
+		<!-- <div class="progress">
+			<div class="progress-bar progress-bar-primary progress_bar progress-bar-striped progress-bar-animated"
+				role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+
+				{{ this.profile_percentage.perecentage}} Complete
+			</div>
+			<input type="hidden" value="{{this.profile_percentage.perecentage }}" id="bar_value">
+		</div> -->
+		<div class="row">
+			 <div class="col-lg-3 col-md-3 nav-horizontal-mobile mb-3">
+          <app-quickstartquide></app-quickstartquide>
+          </div>
+			<div class="col-lg-9 col-md-9">
+				<section>
+					<div class="step-content">
+						<h1 class="main-heading">QUICK START GUIDE SUMMARY</h1>
+
+						<div id="accordion" *ngFor="let status of get_qsg_status.data;">
+							<div class="card" id="card_{{status.id}}">
+								<div class="card-header" [ngClass]="{'completed':status.page_summary_status === 'Complete'}">
+									<a class="card-link" data-toggle="collapse" href="#c_{{status.id}}" [ngClass]="{'completed':status.page_summary_status === 'Complete'}">
+										{{status.name}} ({{status.page_summary_status}})<br />
+									</a>
+									
+									<a href="{{ status.link}}"><i class='btn' data-toggle="collapse" href="#">Edit</i></a>
+								</div>
+								<div id="c_{{status.id}}" class="collapse" data-parent="#accordion">
+									<div class="card-body">
+										<div class="update-button">
+											<div class="alert alert-success alert-dismissible fade show">
+												<strong>{{ status.page_summary_status}}!<br></strong> {{status.name}} has been {{ status.page_summary_status}}
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="update-button text-center">
+							<button (click)="redirectdashboard()" class="btn long-btn"> I’m Finished!</button>
+						</div>
+					</div>
+
+				</section>
+
+			</div>
+		</div>
+	</div>
+</section>
